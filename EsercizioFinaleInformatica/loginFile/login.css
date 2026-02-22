@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("loginSfondo.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh; 
+    margin: 0;
+}
+  form {
+    background-color: rgba(255, 255, 255, 0.658);
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;    
+  }
+  
+  h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    color: black;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"], 
+  input[type="password"], 
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-right:0px;
+    font-size: 14px;
+  }
+
+ 
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  input[type="submit"]:hover {
+      background-color: darkblue;
+  }
+
+  a {
+    color: #3802cc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 15px;
+    display: block;
+    text-align: center;
+  }
+  
+  a:hover {
+    color: darkblue;
+  }
