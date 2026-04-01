@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("loginSfondo.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh; 
+    margin: 0;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+    width: 320px;    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+}
+
+label {
+    color: black;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+input[type="email"], 
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box; 
+}
+
+#togglePassword {
+    position: absolute;
+    right: 12px;
+    top: 38%; 
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #3802cc;
+    font-size: 1.1rem;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #3802cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: darkblue;
+}
+
+a {
+    color: #3802cc;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+#erroreLogin {
+        position: absolute; /*decidi te dove metterlo*/
+        left: 50%;
+        top:700px;
+        transform: translateX(-50%);
+        max-width: 500px;
+        color: #721c24;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        padding: 15px;
+        border-radius: 4px;
+        text-align: center;
+        opacity: 1;
+        transition: opacity 0.5s;
+}

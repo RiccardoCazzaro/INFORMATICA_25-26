@@ -1,74 +1,12 @@
-
 body {
     background-color: black; 
     color: white;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
-.intestazione {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
-    background-color: #1a1a1a;
-    z-index: 1000;
-    border-bottom: 2px solid #3802cc;
-}
-
-.titoloIntestazione {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #3802cc;
-    text-transform: uppercase;
-}
-
-.titoloIntestazione span {
-    font-size: 0.8rem;
-    color: grey;
-    margin-left: 5px;
-}
-
-.links a {
-    color: white;
-    text-decoration: none;
-    margin:15px;
-    font-weight: 600;
-}
-
-.links a:hover {
-    color: #3802cc;
-}
-
-.pulsIntestazione a {
-    padding: 8px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.login {
-    color: #3802cc;
-    border: 1px solid #3802cc;
-}
-
-.signup {
-    background-color: #3802cc;
-    color: black;
-    margin-left: 10px;
-}
-
-.signup:hover {
-    background-color: #0048ff;
-}
-
-.login:hover {
-    background-color: #2e2e31;
-}
-
-
-
+/* Header */
 .centro {
     height: 94vh;
     display: flex;
@@ -77,26 +15,24 @@ body {
     justify-content: center;
 }
 
-.titoloCentro{
+.titoloCentro {
     text-align: center;
-    background: #000000b3;
+    background: rgba(0, 0, 0, 0.7);
     padding: 40px;
     border-radius: 15px;
 }
 
 .centro h1 {
     font-size: 3.5rem;
-    color: white;
     margin-bottom: 10px;
 }
 
 .centro p {
     font-size: 1.5rem;
-    color: white;
 }
 
 .cont {
-    padding: 60px 5%;
+    padding: 60px 10%;
 }
 
 .titoloServizi {
@@ -107,38 +43,41 @@ body {
 
 .servizi {
     display: grid;
-    gap:30px
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px;
 }
 
 .servizio {
-    background: #282828;
-    padding: 30px;
+    background-color: #111; 
+    padding: 25px;
     border-radius: 10px;
-    text-align: center;
-    transition: 0.4s;
-    border: 1px solid white;
 }
 
-.servizio:hover {
-    transform: translateY(-10px);
-    border-color: #3802cc;
+.servizio .icona {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
 }
 
-.servizio a {
-    display: block;
-    margin-top: 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+.servizio h3 {
+    color: #3802cc;
+    margin-top: 0;
 }
 
-.servizio a:hover {
+.servizio p {
+    text-align: justify;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.servizio b {
     color: #3802cc;
 }
 
-.footer {
-    text-align: center;
-    padding: 30px;
-    background: rgba(26, 26, 26, 0.492);
-    color: #666;
+.info-extra {
+    margin-top: 15px;
+    border-top: 1px dashed #444;
+    padding-top: 10px;
+    font-size: 0.85rem;
+    color: #aaa;
 }

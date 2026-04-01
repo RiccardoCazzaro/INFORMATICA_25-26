@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("signupSfondo.jpeg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 26.3px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+    color: black;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+ 
+.riga {
+    display: flex;
+    gap: 15px;     
+    width: 100%;   
+}
+
+.colonna {
+    flex: 1;        
+} 
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="nazionalità"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;    
+}
+
+input[type="submit"]:hover {
+    background-color: darkblue;
+}
+
+ a {
+    color: #3802cc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 15px;
+    display: block;
+    text-align: center;
+  }
+  
+  a:hover {
+    color: darkblue;
+    text-decoration: underline;
+
+  }
+
+  
+#togglePassword {
+    position: absolute;
+    right: 12px;
+    top: 54%; 
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #3802cc;
+    font-size: 1.1rem;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+#erroreEmail {
+  position: absolute;
+        left: 50%;
+        top:540px;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        color: #721c24;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        padding: 15px;
+        border-radius: 4px;
+        text-align: center;
+        opacity: 1;
+        transition: opacity 0.5s;
+}

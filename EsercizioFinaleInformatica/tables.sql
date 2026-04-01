@@ -1,160 +1,77 @@
-create database futsalHouse;
-use futsalHouse;
+-- Creazione Database
+CREATE DATABASE IF NOT EXISTS futsalHouse;
+USE futsalHouse;
 
-create Table campionato(
-    idCampionato int auto_increment,
-    titolo varchar(255) not null,
-    annataStagione YEAR(4),
-    categoria varchar(255),
-    regione varchar(255),
-    nazionalita varchar(50),
-    primary key(idCampionato)
+-- Tabella UTENTI
+CREATE TABLE utenti(
+    idUtente INT AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    cognome VARCHAR(255) NOT NULL,
+    dataNascita DATE,
+    CAP INT,
+    passwordUt VARCHAR(255),
+    provincia VARCHAR(255),
+    nazionalità VARCHAR(50),
+    email VARCHAR(255) UNIQUE,
+    telefono VARCHAR(20),
+    PRIMARY KEY(idUtente)
 );
 
-create table classifica(
-    idClassifica int(20) auto_increment,
-    giornata DATE(20),
-    idCampionato int(20),
-    idSquadra int(20),
-    punti int(20),
-    primary key(idClassifica),
-    foreign key(idCampionato) references campionato(idCampionato),
-    foreign key(idSquadra) references squadra(idSquadra)
-);
-
-create tables squadra(
-    idSquadra int(20) auto_increment,
-    idPalazzetto int(20),
-    nomeSquadra varchar(255) not null,
-    città varchar(255),
-    email varchar(255),
-    coloriSocietari varchar(255),
-    dataNascita DATE(20),
-    nazionalita varchar(50),
+-- Tabella SQUADRA
+CREATE TABLE squadra(
+    idSquadra INT AUTO_INCREMENT,
+    nomeSquadra VARCHAR(255) NOT NULL,
+    città VARCHAR(255),
+    coloriSocietari VARCHAR(255),
+    dataNascita DATE,
+    nazionalità VARCHAR(50),
     logo VARCHAR(255),
-    linkInstagram VARCHAR(255),
-    Foreign Key (idPalazzetto) REFERENCES palazzetto(idPalazzetto),
-    primary key(idSquadra)
+    nomePalazzetto VARCHAR(255),
+    idUtente INT,
+    PRIMARY KEY(idSquadra),
+    FOREIGN KEY (idUtente) REFERENCES utenti(idUtente) on DELETE SET NULL
 );
 
-create Table palazzetto(
-    idPalazzetto int(20) auto_increment,
-    nomePalazzetto varchar(255) not null,
-    superficie varchar(255),
-    città varchar(255),
-    indirizzo varchar(255),
-    gpsLatitudine varchar(255),
-    gpsLongitudine varchar(255),
-    cap int(20),
-    primary key(idPalazzetto)
+-- Tabella CLASSIFICA
+CREATE TABLE classifica (
+    idSquadra INT PRIMARY KEY,
+    punti INT DEFAULT 0,
+    FOREIGN KEY (idSquadra) REFERENCES squadra(idSquadra) ON DELETE CASCADE
 );
 
-create tables partita(
-    idPartita int(20) auto_increment,
-    idCampionato int(20),
-    idSquadraCasa int(20),
-    idSquadraOspite int(20),
-    dataPartita DATE(20),
-    oraPartita TIME(20),
-    golSquadraCasa int(20),
-    golSquadraOspite int(20),
-    idMembro int(20),
-    primary key(idPartita),
-    Foreign Key (idMembro) REFERENCES membro(idMembro),
-    foreign key(idCampionato) references campionato(idCampionato),
-    foreign key(idSquadraCasa)references squadra(idSquadra),
-    foreign key(idSquadraOspite) references squadra(idSquadra)
+-- Tabella PARTITA
+CREATE TABLE partita(
+    idPartita INT AUTO_INCREMENT,
+    idCampionato INT,
+    idSquadraCasa INT,
+    idSquadraOspite INT,
+    dataPartita DATE,
+    oraPartita TIME,
+    golSquadraCasa INT DEFAULT 0,
+    golSquadraOspite INT DEFAULT 0,
+    idUtente INT,
+    PRIMARY KEY(idPartita),
+    FOREIGN KEY (idUtente) REFERENCES utenti(idUtente) on DELETE SET NULL,
+    FOREIGN KEY (idSquadraCasa) REFERENCES squadra(idSquadra) on delete CASCADE,
+    FOREIGN KEY (idSquadraOspite) REFERENCES squadra(idSquadra) on delete CASCADE
 );
 
-create table giocatore (
-    idGiocatore int(20) auto_increment,
-    idSquadra int(20),
-    nome varchar(255) not null,
-    cognome varchar(255) not null,
-    dataNascita DATE(20),
-    nazionalita varchar(50),
-    ruolo varchar(255),
-    nMaglia int(20),
-    altezza int(20),
-    peso int(20),
-    piedeForte varchar(255),
-    goalSegnati int(20),
-    assist int(20),
-    ammonizioni int(20),
-    espulsioni int(20),
-    primary key(idGiocatore),
-    foreign key(idSquadra) references squadra(idSquadra)
-    primary key(idGiocatore),
-    foreign key(idSquadra) references squadra(idSquadra)
+-- Tabella GIOCATORE   forse da agg  nn ancora aggiunta
+CREATE TABLE giocatore (
+    idGiocatore INT AUTO_INCREMENT,
+    idSquadra INT,
+    nome VARCHAR(255) NOT NULL,
+    cognome VARCHAR(255) NOT NULL,
+    dataNascita DATE,
+    nazionalita VARCHAR(50),
+    ruolo VARCHAR(255),
+    nMaglia INT,
+    altezza INT,
+    peso INT,
+    piedeForte VARCHAR(255),
+    PRIMARY KEY(idGiocatore),
+    FOREIGN KEY(idSquadra) REFERENCES squadra(idSquadra) on delete CASCADE,
+    UNIQUE(nome, cognome, idSquadra)
 );
 
-create table marcatore(
-    idMarcatore int(20) auto_increment,
-    idPartita int(20),
-    idGiocatore int(20),
-    minuto int(20),
-    idMembro int(20),
-    primary key(idMarcatore),
-    Foreign Key (idUtente) REFERENCES ()
-    foreign key(idPartita) references partita(idPartita),
-    foreign key(idGiocatore) references giocatore(idGiocatore)
-)
-
-create tables utenti(
-    idUtente int(20) auto_increment,
-    nome varchar(255) not null,
-    cognome varchar(255) not null,
-    dataNascita DATE(20),
-    CAP int(6),
-    passwordUt varchar(255),
-    provincia varchar(255),
-    nazionalità varchar(50),
-    email varchar(255),
-    telefono varchar(20),
-    primary key(idUtente)
-);
-
-create tables prodotti(
-    idProdotto int(20) auto_increment,
-    nomeProdotto varchar(255) not null,
-    descrizione varchar(255),
-    categoria varchar(255),
-    prezzo decimal(10,2),
-    giacenza int(20),
-    primary key(idProdotto)
-);
-
-
-CREATE VIEW classisficaCampionato AS 
-SELECT c.titolo, s.nomeSquadra, cl.punti
-FROM classifica cl
-JOIN campionato c USING(idCampionato)
-JOIN squadra s USING(idSquadra)
-ORDER BY cl.punti DESC;
-
-CREATE VIEW dettagliPartita AS  
-SELECT p.dataPartita, p.oraPartita, sCasa.nomeSquadra AS squadraCasa, sOspite.nomeSquadra AS squadraOspite, p.golSquadraCasa, p.golSquadraOspite
-FROM partita p
-JOIN squadra sCasa ON p.idSquadraCasa = sCasa.idSquadra
-JOIN squadra sOspite ON p.idSquadraOspite = sOspite.idSquadra
-ORDER BY p.dataPartita DESC, p.oraPartita DESC;
-
-CREATE VIEW giocatoriSquadra AS
-SELECT s.nomeSquadra, g.nome, g.cognome, g.ruolo, g.nMaglia, g.goalSegnati, g.assist, g.altezza, g.peso
-FROM giocatore g
-JOIN squadra s ON g.idSquadra = s.idSquadra
-ORDER BY s.nomeSquadra, g.nome, g.cognome;
-
-CREATE VIEW marcatorePartita AS
-SELECT p.dataPartita, p.oraPartita, sCasa.nomeSquadra AS squadraCasa, sOspite.nomeSquadra AS squadraOspite, g.nome, g.cognome, m.minuto
-FROM marcatore m
-JOIN partita p ON m.idPartita = p.idPartita
-JOIN giocatore g ON m.idGiocatore = g.idGiocatore
-JOIN squadra sCasa ON p.idSquadraCasa = sCasa.idSquadra
-JOIN squadra sOspite ON p.idSquadraOspite = sOspite.idSquadra
-ORDER BY p.dataPartita DESC, p.oraPartita DESC, m.minuto ASC;
-
-
-
-
-
+DROP DATABASE futsalHouse;
