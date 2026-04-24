@@ -1,0 +1,135 @@
+body {
+    background: black;
+    color: white;
+    margin: 0;
+}
+
+.container {
+    min-width: 700px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #3802cc;
+    text-transform: uppercase;
+    margin-top: 60px;
+    margin-bottom: 40px;    
+}
+
+h3 {
+    font-size: 1.4rem;
+    color: #3802cc;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.btn-back {
+    display: inline-block;
+    color: #3802cc;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-back:hover { text-decoration: underline; }
+
+
+
+
+.aggiungi {
+    background: black;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 40px;
+}
+
+.sezione {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+input[type="text"] {
+    padding: 14px 18px;
+    background: #1a1a1a;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 220px;
+}
+
+input[type="text"]::placeholder { color: #555; }
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3802cc;
+}
+
+button {
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #3802cc, black);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: linear-gradient(90deg, black, #3802cc);
+}
+
+/* Lista campionati */
+.lista { display: flex; flex-direction: column; gap: 10px; }
+
+.riga {
+    background: black;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.riga:hover { border-color: #3802cc; }
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nome {
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.data {
+    color: #555;
+    font-size: .8rem;
+}
+
+.del {
+    color: #c00;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: .9rem;
+    white-space: nowrap;
+}
+
+.del:hover { color: #f33; }
+
+.vuoto {
+    color: #555;
+    font-style: italic;
+    padding: 10px 0;
+}

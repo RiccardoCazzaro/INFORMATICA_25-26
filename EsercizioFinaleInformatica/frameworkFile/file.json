@@ -1,7 +1,8 @@
 {
     "userpages": ["home.php", "storia.php", "campi.php", "shop.php", "classifiche.php", "loginForm.php", "signupForm.php"],
-    "adminpages": ["gestione.php", "dettagliGestione.php", "dettaglioSquadra.php"],
+    "adminpages": ["gestione.php"],
+    "proprietarioPages": ["creaCampionato.php"],
     "loggedInPages": ["gestione.php", "dettagliGestione.php"],
-    "DBPages": ["gestione.php", "loginForm.php", "signupForm.php", "gestionePartita.php", "gestioneSquadra.php", "classifiche.php", "signup.php", "login.php"],
+    "DBPages": ["gestione.php", "creaCampionato.php", "loginForm.php", "signupForm.php",  "gestioneSquadra.php", "classifiche.php", "signup.php", "login.php"],
     "noHeaderFooterPages": ["loginForm.php", "signupForm.php"]
 }

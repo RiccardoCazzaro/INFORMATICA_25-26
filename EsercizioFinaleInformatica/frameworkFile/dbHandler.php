@@ -2,13 +2,13 @@
 class DBHandler {
     private static $pdo; 
 
-    private function __construct() {}
+    private function __construct() {} // Impedisce l'istanza diretta della classe (singleton)
 
     public static function getPDO(){
         if(self::$pdo == null){ 
             self::connect_database(); 
         }
-        return self::$pdo;        
+        return self::$pdo;        // se ce gia ritorna quella che c gia, altrimenti la crea e poi la ritorna
     }
 
     private static function connect_database() {
@@ -23,7 +23,7 @@ class DBHandler {
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             );
 
-            self::$pdo = new PDO($connection_string, USER, PASSWORD, $connection_array);
+            self::$pdo = new PDO($connection_string, USER, PASSWORD, $connection_array); //crea connessione
 
         } catch(PDOException $e) {
             die("Errore connessione: " . $e->getMessage());

@@ -1,0 +1,108 @@
+* { margin: 0;
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+.intestazioneProprietario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #0f0f1a;
+    z-index: 1000;
+    border-bottom: 2px solid #cc6802;
+}
+
+.linkHome {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #cc6802;
+    text-transform: uppercase;
+}
+
+.linkHome a {
+    color: #cc6802;
+    text-decoration: none;
+}
+
+.linkHome span {
+    font-size: 0.8rem;
+    color: grey;
+    margin-left: 5px;
+    display: block;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.links a:hover { 
+    color: #cc6802;
+}
+
+.links a.active {
+    color: #cc6802 !important; 
+    font-weight: bold;
+    border-bottom: 2px solid #cc6802; 
+    padding-bottom: 5px;
+    text-shadow: 0 0 10px rgba(204, 104, 2, 0.6);
+}
+
+.linkProprietario a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.linkProprietario a:hover {
+    color: #cc6802;
+    transition: 0.3s;
+}
+
+.linkProprietario a.active {
+    color: #cc6802 !important; 
+    font-weight: bold;
+    border-bottom: 2px solid #cc6802; 
+    padding-bottom: 5px;
+    text-shadow: 0 0 10px rgba(204, 104, 2, 0.6);
+}
+
+.salutoUtente { 
+    color: white; 
+    margin-right: 15px; 
+    font-size: 1.5rem; 
+}
+
+.badgeProprietario {
+    font-size: 0.7rem;
+    background-color: #cc6802;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.logout {
+    color: #cc6802;
+    border: 2px solid #cc6802;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.logout:hover {
+    background-color: #cc6802;
+    color: white;
+    transition: 0.3s;
+}

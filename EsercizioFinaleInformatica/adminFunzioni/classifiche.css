@@ -1,12 +1,12 @@
 body {
-    background: #0a0a0a;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    background: black;
+    color: white;   
 }
 
 .container {
     max-width: 1300px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 a {
@@ -14,11 +14,11 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+a:hover { 
     text-decoration: underline;
-}
+ }
 
-.header{    
+.header {
     text-align: center;
     padding: 80px 20px;
     background: linear-gradient(135deg, #3802cc 0%, #1a014d 100%);
@@ -26,15 +26,50 @@ a:hover {
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
-.header p {
+.header h1 {
     font-size: 3rem;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
+
+/* Filtro campionato */
+.campionatoClassifica {
+    margin-top: 28px;
+    margin-bottom: 0;
+}
+
+.sceltaCampionato {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.campionato {
+    color: #777;
+    font-size: .9rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.sceltaCampionato select {
+    padding: 10px 16px;
+    background: black;
+    color: white;
+    border: 1px solid #3802cc;
+    border-radius: 6px;
+    font-size: .95rem;
+    cursor: pointer;
+}
+
+.filtro-form select:focus { outline: none; }
+
+/* TAB BUTTONS */
 .buttons {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     gap: 5px;
     margin-bottom: 20px;
@@ -58,17 +93,11 @@ a:hover {
     border-color: #3802cc;
 }
 
+/* TABS */
+.tab { display: none; }
+.tab.on { display: block; }
 
-/*tabella */
-
-.tab {
-    display: none;
-}
-
-.tab.on {
-    display: block;
-}
-
+/* TABELLA */
 th {
     background: #3802cc;
     color: #fff;
@@ -83,7 +112,7 @@ table {
     border-collapse: collapse;
     background: #111;
     border-radius: 8px;
-    overflow: hidden; /* Taglia gli angoli retti se c'è il border-radius */
+    overflow: hidden;
     margin-bottom: 20px;
     border: 1px solid #333;
 }
@@ -93,38 +122,15 @@ td {
     border-bottom: 1px solid #222;
 }
 
-td a {
-    color: #fff;
-    font-weight: bold;
-}
+td a { color: #fff; font-weight: bold; }
+td a:hover { color: #3802cc; }
+td b { color: #3802cc; font-size: 1.05rem; }
 
-td a:hover {
-    color: #3802cc;
-}
+.v { color: #0c6; font-weight: bold; }
+.g { color: #c80; font-weight: bold; }
+.r { color: red; font-weight: bold; }
 
-td b {
-    color: #3802cc;
-    font-size: 1.05rem;
-}
-
-.v {
-    color: #0c6;
-    font-weight: bold;
-}
-
-.g {
-    color: #c80;
-    font-weight: bold;
-}
-
-.r {
-    color: #c00;
-    font-weight: bold;
-}
-
-
-/* Risultati partite */   
-
+/* RISULTATI */
 .griglia {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -132,7 +138,7 @@ td b {
 }
 
 .card {
-    background: #111;
+    background: black;
     border: 1px solid #333;
     border-left: 4px solid #3802cc;
     border-radius: 8px;
@@ -153,11 +159,12 @@ td b {
     color: #fff;
     font-weight: bold;
     flex: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.sfida a:last-child {
-    text-align: right;
-}
+.sfida a:last-child { justify-content: flex-end; }
 
 .sfida b {
     color: #3802cc;
@@ -165,27 +172,6 @@ td b {
     white-space: nowrap;
 }
 
-.btn-f {
-    border: 1px solid #333;
-    color: #777;
-    padding: 5px 12px;
-    border-radius: 6px;
-    font-size: .8rem;
-    align-self: flex-end;
-}
-
-.btn-f:hover {
-    border-color: #3802cc;
-    color: #3802cc;
-}
-
-.vuoto {
-    color: #555;
-    font-style: italic;
-    padding: 20px 0;
-}
-
-/* Logo mini affianco al nome squadra */
 .logo-mini {
     width: 40px;
     height: 40px;
@@ -195,7 +181,15 @@ td b {
     margin-right: 6px;
 }
 
-.logo {
+.logoMini {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.logo-placeholder {
     display: inline-block;
     width: 28px;
     text-align: center;
@@ -203,19 +197,8 @@ td b {
     font-size: 1rem;
 }
 
-/* Link squadra con logo allineati */
-.squadraLink {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
+.vuoto {
+    color: #555;
+    font-style: italic;
+    padding: 20px 0;
 }
-
-.squadraLink:hover {
-     color: #3802cc; 
-}
-
-
-

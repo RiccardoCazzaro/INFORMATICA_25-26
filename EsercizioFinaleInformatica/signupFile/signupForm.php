@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="it">
+
 <head>
-  <meta charset="UTF-8">
-    <!-- per occhio icona -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/esercizioFinaleInformatica/signupFile/signupForm.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="/esercizioFinaleInformatica/signupFile/signupForm.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -188,9 +185,9 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 <label for="password">Password:</label>
-<div class="password-container">
+<div class="passwordCasella">
     <input type="password" id="password" name="password" required>
-    <i class="fa-solid fa-eye" id="togglePassword"></i>
+    <i class="fa-solid fa-eye" id="eyePassword"></i>
 </div>
 
    <input type="submit" value="registrati">
@@ -198,21 +195,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
    </form> 
-  </body>
-</html>
-
 
 
   <script>
-    const togglePassword = document.querySelector('#togglePassword');
+    const eyePassword = document.querySelector('#eyePassword');
     const password = document.querySelector('#password');
 
-    togglePassword.addEventListener('click', function () {
+    eyePassword.addEventListener('click', function () {
         // Passa da password a text e viceversa
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    let type;
+    if (password.getAttribute('type') === 'password') {   //controlla vall e tipo
+      type = 'text';
+    } else {
+      type = 'password';
+   }      
         password.setAttribute('type', type);
-        
-        // Cambia l'icona tra occhio normale e sbarrato
+        this.classList.toggle('fa-eye');
         this.classList.toggle('fa-eye-slash');
     });
   </script>
+
+  </body>

@@ -1,6 +1,7 @@
 <head>
     <link rel="stylesheet" href="/esercizioFinaleInformatica/frameworkFile/footer.css?v=<?php echo time(); ?>">
 </head>
+<body>
 <footer class="footerSopra">
     <div class="footerContainer">
         <div class="sezioneFooter">
@@ -28,3 +29,4 @@
         <p>&copy; <?php echo date("Y"); ?> Futsal World. Tutti i diritti riservati.</p>
     </div>
 </footer>
+</body>

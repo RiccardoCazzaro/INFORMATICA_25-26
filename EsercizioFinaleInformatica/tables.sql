@@ -1,20 +1,32 @@
--- Creazione Database
-CREATE DATABASE IF NOT EXISTS futsalHouse;
-USE futsalHouse;
+-- Active: 1776593716148@@127.0.0.1@3306@futsalhouse
+
+
+CREATE DATABASE IF NOT EXISTS futsalhouse;
+
+USE futsalhouse;
 
 -- Tabella UTENTI
 CREATE TABLE utenti(
     idUtente INT AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL,
-    cognome VARCHAR(255) NOT NULL,
+    cognome VARCHAR(255) ,
     dataNascita DATE,
     CAP INT,
-    passwordUt VARCHAR(255),
+    passwordUt VARCHAR(255) NOT NULL,
     provincia VARCHAR(255),
     nazionalità VARCHAR(50),
-    email VARCHAR(255) UNIQUE,
+    email VARCHAR(255) UNIQUE NOT NULL,
     telefono VARCHAR(20),
+    ruolo ENUM('utente', 'proprietario', 'admin') DEFAULT 'admin',
     PRIMARY KEY(idUtente)
+);
+
+-- Tabella CAMPIONATO 
+CREATE TABLE campionato (
+    idCampionato INT AUTO_INCREMENT,
+    nomeCampionato VARCHAR(255) NOT NULL,
+    dataCreazione DATE,
+    PRIMARY KEY(idCampionato)
 );
 
 -- Tabella SQUADRA
@@ -28,15 +40,11 @@ CREATE TABLE squadra(
     logo VARCHAR(255),
     nomePalazzetto VARCHAR(255),
     idUtente INT,
-    PRIMARY KEY(idSquadra),
-    FOREIGN KEY (idUtente) REFERENCES utenti(idUtente) on DELETE SET NULL
-);
-
--- Tabella CLASSIFICA
-CREATE TABLE classifica (
-    idSquadra INT PRIMARY KEY,
+    idCampionato INT,
     punti INT DEFAULT 0,
-    FOREIGN KEY (idSquadra) REFERENCES squadra(idSquadra) ON DELETE CASCADE
+    PRIMARY KEY(idSquadra),
+    FOREIGN KEY (idCampionato) REFERENCES campionato(idCampionato) ON DELETE CASCADE,
+    FOREIGN KEY (idUtente) REFERENCES utenti(idUtente) ON DELETE SET NULL
 );
 
 -- Tabella PARTITA
@@ -51,27 +59,14 @@ CREATE TABLE partita(
     golSquadraOspite INT DEFAULT 0,
     idUtente INT,
     PRIMARY KEY(idPartita),
-    FOREIGN KEY (idUtente) REFERENCES utenti(idUtente) on DELETE SET NULL,
-    FOREIGN KEY (idSquadraCasa) REFERENCES squadra(idSquadra) on delete CASCADE,
-    FOREIGN KEY (idSquadraOspite) REFERENCES squadra(idSquadra) on delete CASCADE
+    FOREIGN KEY (idUtente) REFERENCES utenti(idUtente) ON DELETE SET NULL,
+    FOREIGN KEY (idSquadraCasa) REFERENCES squadra(idSquadra) ON DELETE CASCADE,
+    FOREIGN KEY (idSquadraOspite) REFERENCES squadra(idSquadra) ON DELETE CASCADE,
+    FOREIGN KEY (idCampionato) REFERENCES campionato(idCampionato) ON DELETE CASCADE
 );
 
--- Tabella GIOCATORE   forse da agg  nn ancora aggiunta
-CREATE TABLE giocatore (
-    idGiocatore INT AUTO_INCREMENT,
-    idSquadra INT,
-    nome VARCHAR(255) NOT NULL,
-    cognome VARCHAR(255) NOT NULL,
-    dataNascita DATE,
-    nazionalita VARCHAR(50),
-    ruolo VARCHAR(255),
-    nMaglia INT,
-    altezza INT,
-    peso INT,
-    piedeForte VARCHAR(255),
-    PRIMARY KEY(idGiocatore),
-    FOREIGN KEY(idSquadra) REFERENCES squadra(idSquadra) on delete CASCADE,
-    UNIQUE(nome, cognome, idSquadra)
-);
+    drop DATABASE IF EXISTS futsalHouse;
 
-DROP DATABASE futsalHouse;
+INSERT INTO utenti (nome, email, passwordUt, ruolo)
+VALUES ('Admin', 'admin@futsalhouse.it', 'futsalhouse2024!', 'proprietario');
+ 

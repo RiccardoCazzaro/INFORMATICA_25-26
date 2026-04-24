@@ -3,16 +3,16 @@ body {
     background-color: #f0f2f5;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: #333;
-    line-height: 1.6;
-    scroll-behavior: smooth;
 }
+
+
+/*header inizio*/
 
 .presentazioneStoria {
     text-align: center;
     padding: 80px 20px;
     background: linear-gradient(135deg, #3802cc 0%, #1a014d 100%);
     color: white;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 .presentazioneStoria h1 {
@@ -47,6 +47,9 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+
+
+/*generali*/
 
 .sezioneTot {
     max-width: 900px;
@@ -98,6 +101,8 @@ p {
     text-align: justify;
 }
 
+/* successi*/ 
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -119,7 +124,7 @@ th {
 td {
     padding: 15px 18px;
     border-bottom: 1px solid #eee;
-    background-color: #fff;
+    background-color: white;
 }
 
 tr:last-child td {
@@ -130,10 +135,13 @@ tr:nth-child(even) td {
     background-color: #f8f7ff;
 }
 
+
+
+/*il fustal in italia*/
+
 .statistiche {
     display: flex;
     gap: 25px;
-    margin: 40px 0;
 }
 
 .ranking, .coppe {
@@ -146,12 +154,18 @@ tr:nth-child(even) td {
     border-bottom: 6px solid #3802cc;
 }
 
-.big-text {
+.posizione  {
+    text-transform: uppercase;
     font-size: 3.5rem;
     font-weight: 800;
-    display: block;
-    margin: 10px 0;
     color: #00d4ff;
+margin-left: 110px;
+}
+
+.statistiche t {
+    font-size: 1.1rem;
+    color: #eee;
+    margin-top: 10px;
 }
 
 .statistiche h4 {
@@ -159,14 +173,19 @@ tr:nth-child(even) td {
     font-size: 0.85rem;
     letter-spacing: 1px;
     opacity: 0.9;
+    margin-bottom: 10px;
 }
 
-.legends-list {
+
+
+/*divinita sul parquet*/
+
+.legende{
     list-style: none;
     margin-top: 20px;
 }
 
-.legends-list li {
+.legende li {
     background: #fdfdfd;
     margin-bottom: 15px;
     padding: 20px;
@@ -176,12 +195,12 @@ tr:nth-child(even) td {
     transition: all 0.2s ease;
 }
 
-.legends-list li:hover {
+.legende li:hover {
     background: #f0edff;
     transform: translateX(10px);
 }
 
-.legends-list strong {
+.leggende strong {
     color: #1a014d;
     font-size: 1.2rem;
 }

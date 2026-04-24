@@ -74,7 +74,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Scarpe da Futsal</h3>
                 <p>Suola in gomma specifica per superfici indoor</p>
                 <?php mostraPrezzo(59.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="scarpe">Aggiungi ai preferiti</button>
             </div>
 
                 <div class="prodotto">
@@ -82,7 +82,7 @@ function mostraPrezzo($prezzo) {
                     <h3>Fascia da Capitano</h3>
                     <p>Design distintivo per il leader in campo</p>
                     <?php mostraPrezzo(9.99); ?>
-                    <button>Aggiungi ai preferiti</button>
+                    <button id="fasciaCapitano">Aggiungi ai preferiti</button>
                 </div>
 
             <div class="prodotto">
@@ -90,7 +90,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Nastro Atletico</h3>
                 <p>Supporto resistente per polsi e dita</p>
                 <?php mostraPrezzo(7.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="nastro">Aggiungi ai preferiti</button>
             </div>
 
            <div class="prodotto">
@@ -98,7 +98,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Borsa Sport</h3>
                 <p>Capiente e resistente, con scomparti separati</p>
                 <?php mostraPrezzo(44.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="borsa">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -106,7 +106,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Occhiali Protettivi</h3>
                 <p>Protezione oculare per sport ad alta intensità</p>
                 <?php mostraPrezzo(29.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="occhiali">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -114,7 +114,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Pallone Futsal</h3>
                 <p>Taglia 4 a rimbalzo controllato</p>
                 <?php mostraPrezzo(24.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="pallone">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -122,7 +122,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Rullo Foam Roller</h3>
                 <p>Per massaggio muscolare post-gara</p>
                 <?php mostraPrezzo(18.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="rullo">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -130,7 +130,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Set Cinesini</h3>
                 <p>Accessori per allenamento e agilità</p>
                 <?php mostraPrezzo(12.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="cinesini">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -138,7 +138,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Set coni</h3>
                 <p>Accessori per allenamento e agilità</p>
                 <?php mostraPrezzo(12.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="coni">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -146,7 +146,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Corda per Saltare</h3>
                 <p>Strumento essenziale per migliorare resistenza e coordinazione</p>
                 <?php mostraPrezzo(9.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="corda">Aggiungi ai preferiti</button>
             </div>
 
              <div class="prodotto">
@@ -154,7 +154,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Parastinchi</h3>
                 <p>Accessori per allenamento e agilità.</p>
                 <?php mostraPrezzo(12.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="parastinchi">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -162,7 +162,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Borraccia Sportiva</h3>
                 <p>Contenitore per bevande durante l'allenamento.</p>
                 <?php mostraPrezzo(8.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="borraccia">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -170,7 +170,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Cerotti Sportivi</h3>
                 <p>Per prevenire vesciche e irritazioni durante il gioco.</p>
                 <?php mostraPrezzo(5.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="cerotti">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -178,7 +178,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Maschera Protettiva</h3>
                 <p>Per proteggere il viso in caso di infortuni pregressi.</p>
                 <?php mostraPrezzo(19.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="maschera">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -186,7 +186,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Spray Rinfrescante Muscolare</h3>
                 <p>Per un sollievo immediato dopo l'attività fisica.</p>
                 <?php mostraPrezzo(12.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="spray">Aggiungi ai preferiti</button>
             </div>
         </div>
 
@@ -199,7 +199,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Guanti da Portiere Pro</h3>
                 <p>Grip avanzato e stecche di protezione dita.</p>
                 <?php mostraPrezzo(49.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="guantiPortieri">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -207,7 +207,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Ginocchiere Futsal</h3>
                 <p>Protezione specifica per parquet e sintetico.</p>
                 <?php mostraPrezzo(25.00); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="ginocchiere">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -215,7 +215,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Conchiglia Protettiva</h3>
                 <p>Massima protezione nelle fasi di gioco ravvicinate.</p>
                 <?php mostraPrezzo(15.00); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="conchiglia">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -223,7 +223,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Sottopantaloncini Imbottiti</h3>
                 <p>Protezione extra per i fianchi durante i tuffi.</p>
                 <?php mostraPrezzo(34.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="sottopantaloncini">Aggiungi ai preferiti</button>
             </div>
 
             <div class="prodotto">
@@ -231,7 +231,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Gomitiere</h3>
                 <p>Protezione per i gomiti</p>
                 <?php mostraPrezzo(34.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="gomitiere">Aggiungi ai preferiti</button>
             </div>
 
         </div>
@@ -244,7 +244,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Parastinchi Leggeri</h3>
                 <p>Protezione stinchi, modalità leggera</p>
                 <?php mostraPrezzo(14.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="parastinchi">Aggiungi ai preferiti</button>
             </div>
 
         <div class="prodotto">
@@ -252,7 +252,7 @@ function mostraPrezzo($prezzo) {
                 <h3>Calze Grip Tecniche</h3>
                  <p>Inserti in silicone per evitare scivolamenti nella scarpa</p>
                 <?php mostraPrezzo(15.99); ?>
-                <button>Aggiungi ai preferiti</button>
+                <button id="calze">Aggiungi ai preferiti</button>
             </div>
 
 </div>
@@ -260,23 +260,33 @@ function mostraPrezzo($prezzo) {
 
 <?php if($is_logged): ?>
 <script>
-    for (let btn of document.querySelectorAll('.prodotto button')) {
+    // Seleziona tutti i bottoni dei prodotti
+    const bottoni = document.querySelectorAll('.prodotto button');
+
+    //  Quando carichi la pagina, recupera i preferiti 
+    bottoni.forEach(btn => {
+        const id = btn.id;
+        // Controlla se questo ID era stato salvato come "attivo"
+        if (localStorage.getItem(id) == 'attivo') {
+            btn.classList.add('attivo');
+            btn.innerText = "Aggiunto ai preferiti";
+        }
+
+        // Quando clicchi, salva o cancella 
         btn.onclick = function() {
             this.classList.toggle('attivo');
-        
+            
             if (this.classList.contains('attivo')) {
-                this.innerText = "Aggiunto ai preferiti ";
+                this.innerText = "Aggiunto ai preferiti";
+                localStorage.setItem(id, 'attivo'); // Salva nel browser
             } else {
                 this.innerText = "Aggiungi ai preferiti";
+                localStorage.removeItem(id); // Rimuove dal browser
             }
         }
-    }
+    });
 </script>
 
 <?php endif; ?>
-
-</body>
-</html>
-
 </body>
 </html>

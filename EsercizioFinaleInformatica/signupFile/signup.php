@@ -24,8 +24,12 @@ try {
 
         // Login automatico dopo registrazione
         $nuovoIdUtente = $pdo->lastInsertId();
+        $ruolo = ($nuovoIdUtente == 1) ? 'proprietario' : 'admin';
+        $pdo->prepare("UPDATE utenti SET ruolo = ? WHERE idUtente = ?")->execute([$ruolo, $nuovoIdUtente]);
+
         $_SESSION['idUtente'] = $nuovoIdUtente;
         $_SESSION['nome'] = $_POST['nome']; 
+        $_SESSION['ruolo'] = $ruolo;
 
         header("Location: ../home.php"); 
         exit();

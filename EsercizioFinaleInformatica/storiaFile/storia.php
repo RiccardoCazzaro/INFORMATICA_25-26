@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,7 +92,7 @@
         <div id="leggende" class="sezione">
             <h2>Le Divinità del Parquet</h2>
             <p>Il calcio a 5 ha i suoi eroi, atleti capaci di giocate che sfidano le leggi della fisica:</p>
-            <ul class="legends-list">
+            <ul class="legende">
                 <li><strong>Falcao (Alessandro Rosa Vieira):</strong> Considerato il "Dio" del futsal. Brasiliano, capace di segnare in ogni modo possibile, dai colpi di tacco alle rovesciate impossibili.</li>
                 <li><strong>Ricardinho:</strong> "O Mágico". Il portoghese che ha vinto 6 volte il titolo di miglior giocatore del mondo, famoso per il suo dribbling e la rapidità d'esecuzione.</li>
                 <li><strong>Manoel Tobias:</strong> Il re del futsal negli anni '90, con un palmarès che include 2 Mondiali FIFA e 4 Coppe America.</li> 
@@ -113,14 +112,16 @@
             <div class="statistiche">
                 <div class="ranking">
                     <h4>Ranking FIFA (2026)</h4>
-                    <p class="big-text">16°</p>
-                    <p>nel Mondo</p>
+                    <p class="posizione">16°</p>
+                    <t>nel Mondo</t>
                 </div>
                 <div class="coppe">
                     <h4>Palmarès Nazionale</h4>
-                    <p>2 Europei (2003, 2014)</p>
-                    <p>1 Argento Mondiale (2004)</p>
+                    <t>2 Europei (2003, 2014)</t>
+                    <br>
+                    <t>1 Argento Mondiale (2004)</t>
                 </div>
+                
             </div>
 
             <h3>La Nazionale Azzurra</h3>
@@ -175,4 +176,3 @@
         </div>
     </div>
 </body>
-</html>

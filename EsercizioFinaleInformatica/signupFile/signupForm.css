@@ -93,7 +93,7 @@ input[type="submit"]:hover {
   }
 
   
-#togglePassword {
+#eyePassword {
     position: absolute;
     right: 12px;
     top: 54%; 
@@ -103,13 +103,13 @@ input[type="submit"]:hover {
     font-size: 1.1rem;
 }
 
-.password-container {
+.passwordCa {
     position: relative;
     width: 100%;
 }
 
 #erroreEmail {
-  position: absolute;
+        position: fixed;
         left: 50%;
         top:540px;
         transform: translateX(-50%);

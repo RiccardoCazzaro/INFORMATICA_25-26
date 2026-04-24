@@ -1,13 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background-image: url("loginSfondo.jpg");
-    background-size: cover;
+    background-size: cover; 
     background-position: center;
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
+    display: flex; 
+    justify-content: center; /*orrizontalmente*/
+    align-items: center;     /*verticalmente*/
     height: 100vh; 
-    margin: 0;
 }
 
 form {
@@ -22,6 +21,15 @@ h2 {
     text-align: center;
     color: black;
     margin-bottom: 20px;
+
+}
+
+h4 {
+    text-align: center;
+    color: black;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 label {
@@ -31,7 +39,7 @@ label {
     font-weight: bold;
 }
 
-.password-field {
+.passwordCasella {
     position: relative;
     width: 100%;
 }
@@ -48,7 +56,7 @@ input[type="text"] {
     box-sizing: border-box; 
 }
 
-#togglePassword {
+#eyePassword {
     position: absolute;
     right: 12px;
     top: 38%; 
@@ -92,9 +100,9 @@ a:hover {
 }
 
 #erroreLogin {
-        position: absolute; /*decidi te dove metterlo*/
+        position: fixed; 
         left: 50%;
-        top:700px;
+        top:300px;
         transform: translateX(-50%);
         max-width: 500px;
         color: #721c24;
@@ -104,5 +112,5 @@ a:hover {
         border-radius: 4px;
         text-align: center;
         opacity: 1;
-        transition: opacity 0.5s;
+        transition: opacity 0.5s; 
 }
