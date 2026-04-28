@@ -9,7 +9,7 @@ Sito web dedicato al mondo del Futsal (calcio a 5) italiano
 ## Funzionalità
 
 - **Informazioni sul Futsal**: storia dello sport, regole, campioni, club italiani, campi di gioco
-- **Shop online** con sconto del 10% per gli utenti registrati
+- **Shop online (solo lettura)** con sconto del 10% per gli utenti registrati
 - **Classifiche e risultati** dei campionati creati
 - **Area di gestione** per creare squadre, campionati e registrare partite
 - **Sistema di autenticazione** con registrazione, login e logout
