@@ -15,7 +15,7 @@ CREATE TABLE utenti(
     nazionalità VARCHAR(50),
     email VARCHAR(255) UNIQUE NOT NULL,
     telefono VARCHAR(20),
-    ruolo ENUM('utente', 'proprietario', 'admin') DEFAULT 'admin',
+    ruolo ENUM("proprietario", "admin") DEFAULT "admin",
     PRIMARY KEY(idUtente)
 );
 
