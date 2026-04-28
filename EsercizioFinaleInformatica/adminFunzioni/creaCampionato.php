@@ -2,32 +2,36 @@
 $db = DBHandler::getPDO();
 
 // CREA CAMPIONATO
-if (isset($_POST['creaTorneo'])) {
-    $nome = trim($_POST['nome_torneo']);
+if (isset($_POST["creaTorneo"])) {
+
+    $nome = trim($_POST["nomeCampionato"]);
+    /*se nome e =*/
     $ctrduplica = $db->prepare("SELECT COUNT(*) FROM campionato WHERE nomeCampionato=?"); 
     $ctrduplica->execute([$nome]);
+
     if ($ctrduplica->fetchColumn() > 0) {
         echo "<script>alert('Esiste già un campionato con questo nome!');location='creaCampionato.php'</script>"; exit;
     }
-    $db->prepare("INSERT INTO campionato (nomeCampionato, dataCreazione) VALUES (?, NOW())")  /*now  data di ora*/
+
+    /*aggiunge*/
+    $db->prepare("INSERT INTO campionato (nomeCampionato, dataCreazione) VALUES (?, NOW())")  /*now  data di oggi*/
        ->execute([$nome]);
     header("Location: creaCampionato.php"); exit;
 }
 
 // ELIMINA CAMPIONATO
-if (isset($_GET['del'])) {
-    $delId = (int)$_GET['del'];
+if (isset($_GET["del"])) {
+    $delId = $_GET["del"];
     $db->prepare("DELETE FROM campionato WHERE idCampionato = ?")->execute([$delId]);
     header("Location: creaCampionato.php"); exit;
 }
 
 // LISTA CAMPIONATI
-$tornei = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")->fetchAll();
+$campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")->fetchAll();
 ?>
 
 
 <head>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="creaCampionato.css">
 </head>
 <body>
@@ -39,7 +43,7 @@ $tornei = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")->fe
     <section class="aggiungi">
         <h3>Nuovo Campionato</h3>
         <form method="POST" class="sezione">
-            <input type="text" name="nome_torneo" placeholder="Es. Serie A" required>
+            <input type="text" name="nomeCampionato" placeholder="Es. Serie A" required>
             <button name="creaTorneo">Crea</button>
         </form>
     </section>
@@ -47,30 +51,33 @@ $tornei = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")->fe
     <!-- LISTA -->
     <section>
         <h3>Campionati Esistenti</h3>
-        <?php if (!$tornei): ?>
+        <!--array vuoto-->
+        <?php if (!$campionati){?>
             <p class="vuoto">Nessun campionato creato.</p>
-        <?php else: ?>
+        <?php }   
+        
+        else { ?>
             <div class="lista">
-                <?php foreach ($tornei as $t): ?>
+                <?php foreach ($campionati as $c) { ?>
                 <div class="riga">
                     <div class="info">
-                        <span class="nome"><?= htmlspecialchars($t['nomeCampionato']) ?></span>
+                        <span class="nome"><?= htmlspecialchars($c["nomeCampionato"]) ?></span>
 
                         <?php   
-                        $data = new DateTime($t['dataCreazione']);
-                        echo $data->format('d/m/Y'); 
+                            $data = new DateTime($c["dataCreazione"]);
+                            echo $data->format('d/m/Y'); 
                         ?>
                         
                     </div>
-                    <a href="?del=<?= $t['idCampionato'] ?>"
-                       class="del"
-                       onclick="return confirm('Eliminare «<?= htmlspecialchars($t['nomeCampionato']) ?>»?')">
-                        🗑 Elimina
-                    </a>
-                </div>
-                    <?php endforeach; ?>
+                       <a href="?del=<?= $c["idCampionato"] ?>"
+                            class="del"
+                            onclick="return confirm('Eliminare «<?= htmlspecialchars($c['nomeCampionato']) ?> »?')">
+                            🗑 Elimina
+                       </a>
+                    </div>
+                <?php } ?>
             </div>
-        <?php endif; ?>
+        <?php }  ?>
     </section>
-</div>
+    </div>
 </body>

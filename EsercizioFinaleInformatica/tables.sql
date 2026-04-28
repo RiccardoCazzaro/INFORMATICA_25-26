@@ -1,6 +1,4 @@
--- Active: 1776593716148@@127.0.0.1@3306@futsalhouse
-
-
+-- Active: 1776593716148@@127.0.0.1@3306@mysql@futsalhouse
 CREATE DATABASE IF NOT EXISTS futsalhouse;
 
 USE futsalhouse;
@@ -35,9 +33,7 @@ CREATE TABLE squadra(
     nomeSquadra VARCHAR(255) NOT NULL,
     città VARCHAR(255),
     coloriSocietari VARCHAR(255),
-    dataNascita DATE,
     nazionalità VARCHAR(50),
-    logo VARCHAR(255),
     nomePalazzetto VARCHAR(255),
     idUtente INT,
     idCampionato INT,
@@ -65,8 +61,4 @@ CREATE TABLE partita(
     FOREIGN KEY (idCampionato) REFERENCES campionato(idCampionato) ON DELETE CASCADE
 );
 
-    drop DATABASE IF EXISTS futsalHouse;
-
-INSERT INTO utenti (nome, email, passwordUt, ruolo)
-VALUES ('Admin', 'admin@futsalhouse.it', 'futsalhouse2024!', 'proprietario');
- 
+drop DATABASE IF EXISTS futsalHouse;

@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mappa Palazzetti Futsal Italia</title>
     <link rel="stylesheet" href="campi.css">
 </head>
+
 <body>
 
 <div class="presentazioneCampi">
@@ -38,7 +34,7 @@
     <div class="campiSezione">
         <h2>Veneto</h2>
 
-        <h3 class="titoloRegione">Treviso (TV)</h3>
+        <h3 class="provincia">Treviso (TV)</h3>
 
         <div id="TV-Came" class="campo">
             <h3>Palacicogna</h3>
@@ -46,6 +42,16 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11142.224854456595!2d12.186726868748988!3d45.71993913726537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477939c3105d7779%3A0xc61b6a44ebbf22d9!2sPalacicogna!5e0!3m2!1sit!2sit!4v1774026870711!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <p><strong>Squadra:</strong> Came Dosson</p>
                 <p><strong>Categoria:</strong> Serie A</p>
+                <p><strong>Fondo:</strong> Parquet</p>
+            </div>
+        </div>
+
+        <div id="BL-Canottieri" class="campo">
+            <h3>Spes Arena</h3>
+            <div class="info">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11058.586701912835!2d12.198847569115529!3d46.137867537484325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477907ae7a7b16fd%3A0xa7c60fb89502c5e4!2sVHV%20Arena!5e0!3m2!1sit!2sit!4v1774028205229!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p><strong>Squadra:</strong> Canottieri Belluno</p>
+                <p><strong>Categoria:</strong> Serie A2</p>
                 <p><strong>Fondo:</strong> Parquet</p>
             </div>
         </div>
@@ -61,7 +67,7 @@
         </div>
 
                 
-        <h3 class="titoloRegione">Padova (PD)</h3>
+        <h3 class="provincia">Padova (PD)</h3>
 
         <div id="PD-Petrarca" class="campo">
             <h3>Palestra Gozzano</h3>
@@ -73,7 +79,7 @@
 
 
 
-        <h3 class="titoloRegione">Vicenza (VI)</h3>
+        <h3 class="provincia">Vicenza (VI)</h3>
 
         <div id="VI-AltoVicentino" class="campo">
             <h3>Palestra Mario Lanzi (PalaLanzi)</h3>
@@ -96,7 +102,7 @@
         </div>
 
 
-        <h3 class="titoloRegione">Venezia (VE)</h3>
+        <h3 class="provincia">Venezia (VE)</h3>
 
         <div id="VE-Fenice" class="campo">
             <h3>Palafranchetti</h3>
@@ -119,8 +125,7 @@
         </div>
 
 
-
-        <h3 class="titoloRegione">Verona (VR)</h3>
+        <h3 class="provincia">Verona (VR)</h3>
 
         <div id="VR-Verona" class="campo">
             <h3> Palazzetto Le Grazie</h3>
@@ -143,17 +148,6 @@
         </div>
 
 
-        <h3 class="titoloRegione">Belluno (BL)</h3>
-
-        <div id="BL-Canottieri" class="campo">
-            <h3>Spes Arena</h3>
-            <div class="info">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11058.586701912835!2d12.198847569115529!3d46.137867537484325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477907ae7a7b16fd%3A0xa7c60fb89502c5e4!2sVHV%20Arena!5e0!3m2!1sit!2sit!4v1774028205229!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <p><strong>Squadra:</strong> Canottieri Belluno</p>
-                <p><strong>Categoria:</strong> Serie A2</p>
-                <p><strong>Fondo:</strong> Parquet</p>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -163,7 +157,7 @@
     <div class="campiSezione">
         <h2>Piemonte</h2>
 
-        <h3 class="titoloRegione">Cuneo (CN)</h3>
+        <h3 class="provincia">Cuneo (CN)</h3>
 
         <div id="TO-Elledi" class="campo">
             <h3> Palasport Comunale di Caramagna Piemonte</h3>
@@ -175,7 +169,7 @@
             </div>
         </div>
 
-        <h3 class="titoloRegione">Torino (TO)</h3>
+        <h3 class="provincia">Torino (TO)</h3>
 
         <div id="TO-Torino" class="campo">
             <h3> PalaMaggiore di Leini</h3>
@@ -195,7 +189,7 @@
     <div class="campiSezione">
         <h2>Lombardia</h2>
 
-        <h3 class="titoloRegione">Milano (MI)</h3>
+        <h3 class="provincia">Milano (MI)</h3>
 
         <div id="MI-Milano" class="campo">
             <h3>Palaseveninfinity</h3>
@@ -208,7 +202,7 @@
         </div>
 
 
-        <h3 class="titoloRegione">Mantova (MN)</h3>
+        <h3 class="provincia">Mantova (MN)</h3>
 
         <div id="MN-Mantova" class="campo">
             <h3> Palazzetto dello Sport di Borgochiesanuova a Mantova</h3>
@@ -220,7 +214,7 @@
             </div>
         </div>
 
-        <h3 class="titoloRegione">Lecco (LC)</h3>
+        <h3 class="provincia">Lecco (LC)</h3>
 
         <div id="LC-Lecco" class="campo">
             <h3>Palataurus</h3>
@@ -239,7 +233,7 @@
     <div class="campiSezione">
         <h2>Liguria</h2>
 
-        <h3 class="titoloRegione">Genova (GE)</h3>
+        <h3 class="provincia">Genova (GE)</h3>
 
         <div id="GE-Genova" class="campo">
             <h3>Palazzetto dello Sport di Campo Ligure</h3>
@@ -259,7 +253,7 @@
     <div class="campiSezione">
         <h2>Trentino</h2>
 
-        <h3 class="titoloRegione">Trento (TN)</h3>
+        <h3 class="provincia">Trento (TN)</h3>
 
         <div id="TN-Trento" class="campo">
             <h3>Palazzetto Sanbàpolis</h3>
@@ -278,7 +272,7 @@
     <div class="campiSezione">
         <h2>Friuli-Venezia Giulia</h2>
 
-        <h3 class="titoloRegione">Pordenone (PN)</h3>
+        <h3 class="provincia">Pordenone (PN)</h3>
 
         <div id="PN-Pordenone" class="campo">
             <h3>PalaFlora </h3>
@@ -290,7 +284,8 @@
             </div>
         </div>
 
-        <div id="TV-Maccan" class="campo">
+        <h3 class="provincia">Villorba (TV)</h3>
+        <div id="TV-Villorba" class="campo">
             <h3>Palaprata</h3>
             <div class="info">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11110.12662740078!2d12.574036168889666!3d45.880678937337926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4779666126573145%3A0x7bc9fb207eace0ee!2sPalaPrata!5e0!3m2!1sit!2sit!4v1774026992583!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -308,7 +303,7 @@
     <div class="campiSezione">
         <h2>Emilia-Romagna</h2>
 
-        <h3 class="titoloRegione">Forlì-Cesena (FC)</h3>
+        <h3 class="provincia">Forlì-Cesena (FC)</h3>
 
         <div id="FC-Cesena" class="campo">
             <h3>PalaPaganelli</h3>
@@ -320,7 +315,7 @@
             </div>
         </div>
 
-        <h3 class="titoloRegione">Modena (MO)</h3>
+        <h3 class="provincia">Modena (MO)</h3>
 
         <div id="MO-Cavezzo" class="campo">
             <h3>Palacavezzo</h3>
@@ -333,7 +328,7 @@
         </div>
 
 
-        <h3 class="titoloRegione">Ravenna (RA)</h3>
+        <h3 class="provincia">Ravenna (RA)</h3>
 
         <div id="RA-Russi" class="campo">
             <h3>Pala Valli</h3>
@@ -353,7 +348,7 @@
     <div class="campiSezione">
         <h2>Toscana</h2>
 
-        <h3 class="titoloRegione">Pistoia (PT)</h3>
+        <h3 class="provincia">Pistoia (PT)</h3>
 
         <div id="PT-Pistoia" class="campo">
             <h3>PalaCarrara</h3>
@@ -374,7 +369,7 @@
     <div class="campiSezione">
         <h2>Marche</h2>
 
-        <h3 class="titoloRegione">Pesaro-Urbino (PU)</h3>
+        <h3 class="provincia">Pesaro-Urbino (PU)</h3>
 
         <div id="PS-Italservice" class="campo">
             <h3> PalaFiera</h3>
@@ -387,7 +382,7 @@
         </div>
 
 
-        <h3 class="titoloRegione">Ancona (AN)</h3>
+        <h3 class="provincia">Ancona (AN)</h3>
 
         <div id="AN-CUS" class="campo">
             <h3>PalaCUS</h3>
@@ -407,7 +402,7 @@
     <div class="campiSezione">
         <h2>Umbria</h2>
 
-        <h3 class="titoloRegione">Terni (TR)</h3>
+        <h3 class="provincia">Terni (TR)</h3>
 
         <div id="TR-Ternana" class="campo">
             <h3>PalaDiVittorio </h3>
@@ -426,7 +421,7 @@
     <div class="campiSezione">
         <h2>Lazio</h2>
 
-        <h3 class="titoloRegione">Roma (RM)</h3>
+        <h3 class="provincia">Roma (RM)</h3>
 
         <div id="RM-Olimpus" class="campo">
             <h3>PalaOlgiata</h3>
@@ -486,7 +481,7 @@
     <div class="campiSezione">
         <h2>Sardegna</h2>
 
-        <h3 class="titoloRegione">Cagliari (CA)</h3>
+        <h3 class="provincia">Cagliari (CA)</h3>
 
         <div id="CA-Leonardo" class="campo">
             <h3> PalaVilla</h3>
@@ -506,7 +501,7 @@
     <div class="campiSezione">
         <h2>Abruzzo</h2>
 
-        <h3 class="titoloRegione">Pescara (PE)</h3>
+        <h3 class="provincia">Pescara (PE)</h3>
 
         <div id="PE-Vitulano" class="campo">
             <h3>PalaRigopiano</h3>
@@ -526,7 +521,7 @@
     <div class="campiSezione">
         <h2>Campania</h2>
 
-        <h3 class="titoloRegione">Napoli (NA)</h3>
+        <h3 class="provincia">Napoli (NA)</h3>
 
         <div id="NA-Napoli" class="campo">
             <h3>PalaVesuvio </h3>
@@ -538,7 +533,7 @@
             </div>
         </div>
 
-          <h3 class="titoloRegione">Salerno (SA)</h3>
+          <h3 class="provincia">Salerno (SA)</h3>
         <div id="SA-Eboli" class="campo">
             <h3>PalaSele </h3>
             <div class="info">
@@ -550,7 +545,7 @@
         </div>
 
 
-        <h3 class="titoloRegione">Benevento (BE)</h3>
+        <h3 class="provincia">Benevento (BE)</h3>
 
         <div id="BE-Benevento" class="campo">
             <h3>PalaTedeschi </h3>
@@ -563,7 +558,7 @@
         </div>
 
 
-        <h3 class="titoloRegione">Avellino (AV)</h3>
+        <h3 class="provincia">Avellino (AV)</h3>
 
         <div id="AV-SandroAbate" class="campo">
             <h3>PalaDelMauro</h3>
@@ -582,7 +577,7 @@
     <div class="campiSezione">
         <h2>Puglia</h2>
 
-        <h3 class="titoloRegione">Bari (BA)</h3>
+        <h3 class="provincia">Bari (BA)</h3>
 
         <div id="BA-Bulldog" class="campo">
             <h3>PalaLivatino </h3>
@@ -594,7 +589,7 @@
             </div>
         </div>
 
-        <h3 class="titoloRegione">BAT — Barletta-Andria-Trani (BT)</h3>
+        <h3 class="provincia">BAT — Barletta-Andria-Trani (BT)</h3>
 
         <div id="BT-Barletta" class="campo">
             <h3>Palasport di Fasano</h3>
@@ -607,7 +602,7 @@
         </div>
 
 
-        <h3 class="titoloRegione">Foggia (FG)</h3>
+        <h3 class="provincia">Foggia (FG)</h3>
 
         <div id="FG-Manfredonia" class="campo">
             <h3>PalaScaloria</h3>
@@ -626,7 +621,7 @@
     <div class="campiSezione">
         <h2>Basilicata</h2>
 
-        <h3 class="titoloRegione">Matera (MT)</h3>
+        <h3 class="provincia">Matera (MT)</h3>
 
         <div id="MT-Bernalda" class="campo">
             <h3>PalaCampagna </h3>
@@ -639,7 +634,7 @@
         </div>
 
 
-        <h3 class="titoloRegione">Potenza (PZ)</h3>
+        <h3 class="provincia">Potenza (PZ)</h3>
 
         <div id="PZ-Potenza" class="campo">
             <h3>PalaPergola</h3>
@@ -658,7 +653,7 @@
     <div class="campiSezione">
         <h2>Calabria</h2>
 
-        <h3 class="titoloRegione">Cosenza (CS)</h3>
+        <h3 class="provincia">Cosenza (CS)</h3>
 
         <div id="CS-Pirossigeno" class="campo">
             <h3>PalaCosentia</h3>
@@ -671,7 +666,7 @@
         </div>
 
 
-        <h3 class="titoloRegione">Catanzaro (CZ)</h3>
+        <h3 class="provincia">Catanzaro (CZ)</h3>
 
         <div id="CZ-Ecosistem" class="campo">
             <h3>PalaSparti </h3>
@@ -691,7 +686,7 @@
     <div class="campiSezione">
         <h2>Sicilia</h2>
 
-        <h3 class="titoloRegione">Catania (CT)</h3>
+        <h3 class="provincia">Catania (CT)</h3>
 
         <div id="CT-Meta" class="campo">
             <h3>PalaCatania</h3>
@@ -732,4 +727,3 @@
 </section>
 
 </body>
-</html>

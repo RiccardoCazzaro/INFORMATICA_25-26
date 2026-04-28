@@ -3,7 +3,7 @@ session_start();
 $pdo = DBHandler::getPDO();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT); 
     
     $sql = "INSERT INTO utenti (passwordUt, nome, cognome, email, telefono, provincia, CAP, dataNascita, nazionalità) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -19,7 +19,7 @@ try {
             $_POST['provincia'], 
             $_POST['CAP'], 
             $_POST['dataNascita'],
-             $_POST['nazionalità']
+            $_POST['nazionalità']
         ]);
 
         // Login automatico dopo registrazione

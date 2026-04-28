@@ -18,9 +18,9 @@ class DBHandler {
         try {
             $connection_string = 'mysql:host=localhost;dbname=futsalhouse;charset=utf8';
             
-            $connection_array = array(
+            $connection_array = array( 
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC 
             );
 
             self::$pdo = new PDO($connection_string, USER, PASSWORD, $connection_array); //crea connessione

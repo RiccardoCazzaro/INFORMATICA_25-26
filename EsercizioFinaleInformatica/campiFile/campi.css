@@ -4,42 +4,39 @@ body {
 }
 
 .presentazioneCampi {
-    text-align: center;
-    padding: 80px 20px;
+    text-align: center; 
+    padding: 80px;
     background: linear-gradient(135deg, #3802cc 0%, #1a014d 100%);
     color: white;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 .presentazioneCampi h1 {
     font-size: 3rem;
     margin-bottom: 30px;
-    text-transform: uppercase;
+    text-transform: uppercase; 
 }
 
 .presentazioneCampi p {
     font-size: 20px;
-    line-height: 1.6;
 }
 
 .linkPalazzetti {
     display: flex;
-    justify-content: center; 
-    align-items: center;    
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin: 30px auto 0 auto; 
+    margin: 30px auto 0;  /* alto dx sx basso*/
     max-width: 1600px;
-  
 }
+
 .linkPalazzetti a {
     color: white;
     text-decoration: none;
     font-weight: 600;
     padding: 10px 20px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff33;
     border-radius: 50px;
-    transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.1);
 }
 
@@ -47,58 +44,50 @@ body {
     background: white;
     color: #3802cc;
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .campiSezione {
     display: flex;
     flex-direction: column;
-    
-    gap: 30px;
+    gap: 10px;
     max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 20px;
+    margin: 0 auto;  
+    padding: 0 20px; /*dx sx*/
 }
 
 .campiSezione h2 {
     border-left: 6px solid #3802cc;
     padding-left: 15px;
     color: #3802cc;
-    margin-bottom: 30px;
     font-size: 24px;
-    margin-top: 40px;
+    margin-top: 60px;
+    margin-bottom: 5px;
 }
 
-.titoloRegione {
-    font-size: 14px;
-    font-weight: 700;
+.provincia {
+    font-size: 20px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
     color: #888;
     border-left: 4px solid #d0c8f5;
     padding-left: 12px;
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 5px;
 }
-
-
 
 .campo {
     background-color: white;
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: 0.3s ease;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .campo:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .campo h3 {
-    text-align: center;
-    color: black;
+    text-align: center; 
 }
 
 .campo p {
@@ -121,7 +110,6 @@ body {
     padding: 15px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    
 }
 
 .info p {

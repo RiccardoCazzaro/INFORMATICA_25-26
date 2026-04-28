@@ -2,11 +2,11 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/esercizioFinaleInformatica/signupFile/signupForm.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="/esercizioFinaleInformatica/signupFile/signupForm.css?">
 </head>
 <body>
 
-<?php if (isset($_GET['errore']) && $_GET['errore'] === 'email_esistente'): ?>
+<?php if (isset($_GET["errore"]) && $_GET["errore"] =="email_esistente"): ?>
     <div id="erroreEmail" class="segnaleErrore">                   
          <strong>Errore! Questa email è già associata a un account. Prova con un'altra o effettua il login.</strong>
     </div>

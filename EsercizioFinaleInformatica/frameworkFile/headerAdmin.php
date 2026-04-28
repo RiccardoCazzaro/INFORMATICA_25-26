@@ -1,15 +1,14 @@
 <head>
-    <link rel="stylesheet" href="/esercizioFinaleInformatica/frameworkFile/headerAdmin.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="/esercizioFinaleInformatica/frameworkFile/headerAdmin.css">
 </head>
 
 <?php
-if (session_status() === PHP_SESSION_NONE) session_start();
-$nomeAdmin = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : "Admin";
-$current_page = basename($_SERVER['PHP_SELF']); 
+    $current_page = basename($_SERVER['PHP_SELF']); 
 ?>
+
 <nav class="intestazioneAdmin">
-     <div class="linkHome">
-            <a href="/esercizioFinaleInformatica/home.php">Fustal World</a>
+     <div class="sitoNome">
+            <a href="/esercizioFinaleInformatica/home.php">Fustal Mania</a>
             <span>by Cazzaro Riccardo</span>
      </div>
 
@@ -22,11 +21,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
     <div class="linkAdmin">
         <a href="/esercizioFinaleInformatica/adminFunzioni/gestione.php" class="<?= ($current_page == 'gestione.php') ? 'active' : ''; ?>">Gestione</a>
-        </div>
-    </li>
+    </div>
 
     <div class="pulsantiUtente">
-        <span class="salutoUtente">Ciao, <strong><?php echo $_SESSION['nome']; ?></strong></span>
+        <span class="salutoUtente">Ciao, <strong><?php echo htmlspecialchars($_SESSION['nome']); ?></strong></span>
         <a href="/esercizioFinaleInformatica/frameworkFile/logOut.php" class="logout">Esci</a>
     </div>
 </nav>

@@ -1,9 +1,7 @@
 body {
     background-color: #f0f2f5;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: #333;
     line-height: 1.6;
-    scroll-behavior: smooth;
 }
 
 .intestazione {
@@ -25,7 +23,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;           
+    flex-wrap: wrap;      
 }
 
 
@@ -93,7 +91,6 @@ background: white;
 }
 
 
-
 .prodottiSezione {
     max-width: 1200px;
     margin: 40px auto;
@@ -110,7 +107,7 @@ background: white;
 
 #prodottiGenerali, #prodottiPortiere, #prodottiGiocatoriMovimento {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 250px)); 
     gap: 30px;
     margin-bottom: 60px;
 }

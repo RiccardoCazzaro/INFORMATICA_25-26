@@ -1,7 +1,7 @@
 
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
-$is_logged = isset($_SESSION['idUtente']); //ti da vero o falso a seconda se è loggato
+$is_logged = isset($_SESSION['idUtente']); //v o f
 
 function mostraPrezzo($prezzo) {
     global $is_logged;
@@ -21,8 +21,6 @@ function mostraPrezzo($prezzo) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -263,7 +261,7 @@ function mostraPrezzo($prezzo) {
     // Seleziona tutti i bottoni dei prodotti
     const bottoni = document.querySelectorAll('.prodotto button');
 
-    //  Quando carichi la pagina, recupera i preferiti 
+    //  Quando carichi la pagina recupera i preferiti 
     bottoni.forEach(btn => {
         const id = btn.id;
         // Controlla se questo ID era stato salvato come "attivo"
@@ -272,7 +270,7 @@ function mostraPrezzo($prezzo) {
             btn.innerText = "Aggiunto ai preferiti";
         }
 
-        // Quando clicchi, salva o cancella 
+        // salva o cancella 
         btn.onclick = function() {
             this.classList.toggle('attivo');
             
@@ -289,4 +287,3 @@ function mostraPrezzo($prezzo) {
 
 <?php endif; ?>
 </body>
-</html>

@@ -1,11 +1,10 @@
 body {
     background: black;
     color: white;
-    margin: 0;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -59,11 +58,11 @@ button:hover {
 /* --- TABELLE E CLASSIFICHE --- */
 table {
     width: 100%;
-    border-collapse: collapse;
     background: black;
-    border-radius: 8px;
-    overflow: hidden;
     margin-bottom: 20px;
+    border-radius: 10px;
+    border-spacing: 0; 
+    overflow: hidden; 
 }
 
 th {
@@ -75,20 +74,13 @@ th {
     text-transform: uppercase;
 }
 
+
 td {
-    padding: 11px 14px;
+    padding: 11px 14px; /*v e o*/
     border-bottom: 1px solid #222;
+    border-right:1px solid #222; ;
 }
 
-td a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-td a:hover {
-    color: #3802cc;
-}
 
 
 
@@ -106,74 +98,23 @@ select {
 }
 
 input{
-    max-width: 300px;
+    max-width: 196px;
 }
 
 input[type="text"]{
     margin-top: 30px;
 }
 
-input::placeholder {
-    color: #3802cc;
+input::placeholder {   /*:: x attributo no tag*/
+    color: white;
     font-size: 24px;
 }
 
-[name="campionato"],[name="c"],[name="o"] {
-color:#3802cc
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);  
 }
 
 
 
-
-/*FILE */
-.file {
-    margin-bottom: 20px;
-    background-color: black;     
-    padding: 15px;
-    max-height: 150px;
-    border-radius: 8px;         
-    border: 1px solid #333;     
-    max-width: 500px;
-}
-
-.titoloFile {
-    color: #3802cc;           
-    margin-top: 0;             
-    font-weight: bold;          
-    margin-bottom: 10px;     
-}
-
-.titoloFile {
-    font-size: 16px;
-    color: #777;             
-    cursor: pointer;           
-}
-
-.file :hover {
-    border-color: #3802cc;    
-    transition: border-color 0.3s ease;
-}
-
-
-.logoMini {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    border-radius: 4px;
-    background: #1a1a1a;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
-.placeholder {
-    width: 32px;
-    height: 32px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #222;
-    color: #555;
-    border-radius: 4px;
-    margin-right: 10px;
-}
 

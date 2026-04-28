@@ -4,7 +4,6 @@ body {
     flex-direction: column;
     min-height: 100vh;
     height: 100%;
-
 }
 
 .container{
@@ -24,14 +23,12 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; 
-    align-items: flex-start;
     padding: 0 30px;
     gap: 20px;
 }
 
 .sezioneFooter {
-    flex: 1;
+    flex: 1; 
     min-width: 250px;
 }
 
@@ -70,7 +67,6 @@ body {
 .frase {
     flex: 1;
     display: flex;
-    justify-content: flex-end; 
     text-align: right;
 }
 

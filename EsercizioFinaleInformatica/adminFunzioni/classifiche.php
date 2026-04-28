@@ -29,8 +29,8 @@ $classifica = $qClass->fetchAll();
 if ($idCampionato > 0) {
     $qP = $db->prepare("
         SELECT p.*,
-            s1.nomeSquadra AS nomeCasa,    s1.idSquadra AS idCasa,    s1.logo AS logoCasa,
-            s2.nomeSquadra AS nomeOspite,  s2.idSquadra AS idOspite,  s2.logo AS logoOspite
+            s1.nomeSquadra AS nomeCasa,    s1.idSquadra AS idCasa,
+            s2.nomeSquadra AS nomeOspite,  s2.idSquadra AS idOspite
         FROM partita p
         JOIN squadra s1 ON p.idSquadraCasa    = s1.idSquadra
         JOIN squadra s2 ON p.idSquadraOspite  = s2.idSquadra
@@ -41,8 +41,8 @@ if ($idCampionato > 0) {
 } else {
     $qP = $db->query("
         SELECT p.*,
-            s1.nomeSquadra AS nomeCasa,    s1.idSquadra AS idCasa,    s1.logo AS logoCasa,
-            s2.nomeSquadra AS nomeOspite,  s2.idSquadra AS idOspite,  s2.logo AS logoOspite
+            s1.nomeSquadra AS nomeCasa,    s1.idSquadra AS idCasa,
+            s2.nomeSquadra AS nomeOspite,  s2.idSquadra AS idOspite
         FROM partita p
         JOIN squadra s1 ON p.idSquadraCasa    = s1.idSquadra
         JOIN squadra s2 ON p.idSquadraOspite  = s2.idSquadra
@@ -131,16 +131,7 @@ $partite = $qP->fetchAll();
                 ?>
                 <tr>
                     <td><?= $i + 1 ?></td>
-                    <td>
-                        
-                            <?php if (!empty($squadra['logo'])): ?>
-                                <img src="<?= htmlspecialchars($squadra['logo']) ?>" class="logo-mini">
-                            <?php else: ?>
-                                <span class="logo-placeholder">⚽</span>
-                            <?php endif; ?>
-                            <?= htmlspecialchars($squadra['nomeSquadra']) ?>
-                        </a>
-                    </td>
+                    <td><?= htmlspecialchars($squadra['nomeSquadra']) ?></td>
                     <td><?= $pg ?></td>
                     <td><?= $gf ?></td>
                     <td><?= $gs ?></td>
@@ -162,22 +153,16 @@ $partite = $qP->fetchAll();
             <p class="vuoto">Nessuna partita disputata.</p>
         <?php else: ?>
         <div class="griglia">
-            <?php foreach ($partite as $p) {  ?>
+            <?php foreach ($partite as $p) { ?>
             <div class="card">
+                <div class="dataOra">
+                    <?= $p['dataPartita'] ? date('d/m/Y', strtotime($p['dataPartita'])) : '' ?>
+                    <?= $p['oraPartita']  ? ' – ' . substr($p['oraPartita'], 0, 5)      : '' ?>
+                </div>
                 <div class="sfida">
-                    <a href="/esercizioFinaleInformatica/adminFunzioni/gestioneSquadra.php?id=<?= $p['idCasa'] ?>">
-                        <?php if (!empty($p['logoCasa'])): ?>
-                            <img src="<?= htmlspecialchars($p['logoCasa']) ?>" class="logoMini">
-                        <?php endif; ?>
-                        <?= htmlspecialchars($p['nomeCasa']) ?>
-                    </a>
+                    <span><?= htmlspecialchars($p['nomeCasa']) ?></span>
                     <b><?= $p['golSquadraCasa'] ?> – <?= $p['golSquadraOspite'] ?></b>
-                    <a href="/esercizioFinaleInformatica/adminFunzioni/gestioneSquadra.php?id=<?= $p['idOspite'] ?>">
-                        <?= htmlspecialchars($p['nomeOspite']) ?>
-                        <?php if (!empty($p['logoOspite'])): ?>
-                            <img src="<?= htmlspecialchars($p['logoOspite']) ?>" class="logoMini">
-                        <?php endif; ?>
-                    </a>
+                    <span><?= htmlspecialchars($p['nomeOspite']) ?></span>
                 </div>
             </div>
             <?php } ?>

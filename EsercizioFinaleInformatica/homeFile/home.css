@@ -1,23 +1,25 @@
 body {
     background-color: black; 
     color: white;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
 }
 
 /* Header */
 .centro {
-    height: 94vh;
+    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    background: url(sfondoHome.jpg) center/cover;
-    align-items: center;
-    justify-content: center;
+    background-image: url(sfondoHome.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    background-attachment: fixed; 
+    align-items: center; /*vert*/
+    justify-content: center; /*orizz*/
 }
 
 .titoloCentro {
     text-align: center;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
     padding: 40px;
     border-radius: 15px;
 }
@@ -32,7 +34,7 @@ body {
 }
 
 .cont {
-    padding: 60px 10%;
+    padding: 60px 10%; 
 }
 
 .titoloServizi {
@@ -43,19 +45,14 @@ body {
 
 .servizi {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr); /*2 col =spazio*/
     gap: 40px;
 }
 
 .servizio {
-    background-color: #111; 
+    background-color: #1f1e1e; 
     padding: 25px;
     border-radius: 10px;
-}
-
-.servizio .icona {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
 }
 
 .servizio h3 {
@@ -64,9 +61,8 @@ body {
 }
 
 .servizio p {
-    text-align: justify;
+    text-align: justify; 
     font-size: 0.95rem;
-    line-height: 1.6;
     color: #ccc;
 }
 
@@ -74,9 +70,9 @@ body {
     color: #3802cc;
 }
 
-.info-extra {
+.infoExtra {
     margin-top: 15px;
-    border-top: 1px dashed #444;
+    border-top: 1px dashed #444; 
     padding-top: 10px;
     font-size: 0.85rem;
     color: #aaa;

@@ -2,22 +2,23 @@ body {
     background: black;
     color: white;   
 }
-
+ 
 .container {
-    max-width: 1300px;
+    max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 16px;
+    box-sizing: border-box;
 }
-
+ 
 a {
     color: #3802cc;
     text-decoration: none;
 }
-
+ 
 a:hover { 
     text-decoration: underline;
- }
-
+}
+ 
 .header {
     text-align: center;
     padding: 80px 20px;
@@ -25,27 +26,25 @@ a:hover {
     color: white;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
-
+ 
 .header h1 {
     font-size: 3rem;
     margin-bottom: 30px;
     text-transform: uppercase;
 }
-
-
+ 
 /* Filtro campionato */
 .campionatoClassifica {
     margin-top: 28px;
     margin-bottom: 0;
 }
-
+ 
 .sceltaCampionato {
     display: flex;
     align-items: center;
     gap: 14px;
-    flex-wrap: wrap;
 }
-
+ 
 .campionato {
     color: #777;
     font-size: .9rem;
@@ -54,7 +53,7 @@ a:hover {
     letter-spacing: 1px;
     white-space: nowrap;
 }
-
+ 
 .sceltaCampionato select {
     padding: 10px 16px;
     background: black;
@@ -64,9 +63,9 @@ a:hover {
     font-size: .95rem;
     cursor: pointer;
 }
-
+ 
 .filtro-form select:focus { outline: none; }
-
+ 
 /* TAB BUTTONS */
 .buttons {
     margin-top: 20px;
@@ -74,7 +73,7 @@ a:hover {
     gap: 5px;
     margin-bottom: 20px;
 }
-
+ 
 .tab-btn {
     background: #111;
     color: #777;
@@ -86,17 +85,17 @@ a:hover {
     text-transform: uppercase;
     font-size: .9rem;
 }
-
+ 
 .tab-btn.on {
     background: #3802cc;
     color: #fff;
     border-color: #3802cc;
 }
-
+ 
 /* TABS */
 .tab { display: none; }
 .tab.on { display: block; }
-
+ 
 /* TABELLA */
 th {
     background: #3802cc;
@@ -106,7 +105,7 @@ th {
     font-size: .85rem;
     text-transform: uppercase;
 }
-
+ 
 table {
     width: 100%;
     border-collapse: collapse;
@@ -116,27 +115,27 @@ table {
     margin-bottom: 20px;
     border: 1px solid #333;
 }
-
+ 
 td {
     padding: 12px 14px;
     border-bottom: 1px solid #222;
 }
-
+ 
 td a { color: #fff; font-weight: bold; }
 td a:hover { color: #3802cc; }
 td b { color: #3802cc; font-size: 1.05rem; }
-
+ 
 .v { color: #0c6; font-weight: bold; }
 .g { color: #c80; font-weight: bold; }
 .r { color: red; font-weight: bold; }
-
+ 
 /* RISULTATI */
 .griglia {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 12px;
 }
-
+ 
 .card {
     background: black;
     border: 1px solid #333;
@@ -148,6 +147,20 @@ td b { color: #3802cc; font-size: 1.05rem; }
     gap: 10px;
 }
 
+/* DATA E ORA */
+.dataOra {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #3802cc;
+    border-bottom: 1px solid #222;
+    padding-bottom: 8px;
+}
+ 
 .sfida {
     display: flex;
     justify-content: space-between;
@@ -155,48 +168,23 @@ td b { color: #3802cc; font-size: 1.05rem; }
     gap: 8px;
 }
 
-.sfida a {
+.sfida span {
     color: #fff;
     font-weight: bold;
     flex: 1;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    font-size: 0.95rem;
 }
 
-.sfida a:last-child { justify-content: flex-end; }
-
+.sfida span:last-child {
+    text-align: right;
+}
+ 
 .sfida b {
     color: #3802cc;
     font-size: 1.2rem;
     white-space: nowrap;
 }
-
-.logo-mini {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    border-radius: 4px;
-    vertical-align: middle;
-    margin-right: 6px;
-}
-
-.logoMini {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    border-radius: 3px;
-    vertical-align: middle;
-}
-
-.logo-placeholder {
-    display: inline-block;
-    width: 28px;
-    text-align: center;
-    margin-right: 6px;
-    font-size: 1rem;
-}
-
+ 
 .vuoto {
     color: #555;
     font-style: italic;

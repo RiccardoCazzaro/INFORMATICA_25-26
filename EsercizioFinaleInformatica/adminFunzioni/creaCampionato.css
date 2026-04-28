@@ -78,7 +78,7 @@ button {
     border: 1px solid rgba(255,255,255,0.4);
     cursor: pointer;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: bold; 
     text-transform: uppercase;
 }
 
@@ -86,8 +86,13 @@ button:hover {
     background: linear-gradient(90deg, black, #3802cc);
 }
 
+
 /* Lista campionati */
-.lista { display: flex; flex-direction: column; gap: 10px; }
+.lista {
+     display: flex; 
+     flex-direction: column; 
+     gap: 10px; 
+}
 
 .riga {
     background: black;
@@ -100,7 +105,9 @@ button:hover {
     gap: 12px;
 }
 
-.riga:hover { border-color: #3802cc; }
+.riga:hover { 
+    border-color: #3802cc; 
+}
 
 .info {
     display: flex;
@@ -126,7 +133,9 @@ button:hover {
     white-space: nowrap;
 }
 
-.del:hover { color: #f33; }
+.del:hover { 
+    color: rgb(255, 42, 42); 
+}
 
 .vuoto {
     color: #555;
