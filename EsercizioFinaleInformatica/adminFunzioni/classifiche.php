@@ -2,7 +2,7 @@
 $db = DBHandler::getPDO();
 
 // Campionato selezionato (0 = tutti)
-$idCampionato = isset($_GET['torneo']) ? (int)$_GET['torneo'] : 0;
+$idCampionato = isset($_GET["torneo"]) ? $_GET["torneo"] : 0;
 
 // Lista campionati per il dropdown
 $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")->fetchAll();
@@ -25,8 +25,7 @@ if ($idCampionato > 0) {
 }
 $classifica = $qClass->fetchAll();
 
-// Partite (filtrate per campionato se selezionato)
-/*prendo tutte le partite con i nomi delle squadre casa e ospite, filtrando per campionato se è stato selezionato*/
+
 if ($idCampionato > 0) {
     $qP = $db->prepare("
         SELECT p.*,
@@ -70,11 +69,11 @@ $partite = $qP->fetchAll();
         <form method="GET" class="sceltaCampionato">
 
             <label class="campionato">Campionato:</label>
-            <select name="torneo" onchange="this.form.submit()"> <!-- quando cambio campionato cambia la classifica e le squadre  -->
+            <select name="torneo" onchange="this.form.submit()"> 
                 <option value="" <?= !$idCampionato ? "selected" : "" ?>>Tutti</option>
                 <?php foreach ($campionati as $c) { ?>
-                    <option value="<?= $c['idCampionato'] ?>" <?= $idCampionato == $c['idCampionato'] ? "selected" : "" ?>>
-                        <?= htmlspecialchars($c['nomeCampionato']) ?>
+                    <option value="<?= $c["idCampionato"] ?>" <?= $idCampionato == $c["idCampionato"] ? "selected" : "" ?>>
+                        <?= htmlspecialchars($c["nomeCampionato"]) ?>
                     </option>
                 <?php } ?>
             </select>
