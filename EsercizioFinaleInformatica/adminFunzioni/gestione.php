@@ -2,7 +2,7 @@
 $db = DBHandler::getPDO();
 
 // AGGIUNTA SQUADRA
-if (isset($_POST["add_squadra"])) {
+if (isset($_POST["add_squadra"])) { 
     $ctrDuplica = $db->prepare("SELECT COUNT(*) FROM squadra WHERE nomeSquadra=? AND idCampionato=?");
     $ctrDuplica->execute([$_POST["nome"], $_POST["idCampionato"]]); 
 
@@ -11,16 +11,18 @@ if (isset($_POST["add_squadra"])) {
     }
 
     $db->prepare("INSERT INTO squadra (nomeSquadra, nomePalazzetto, coloriSocietari, nazionalità, città, idUtente, idCampionato, punti) VALUES (?,?,?,?,?,?,?,0)")
-       ->execute([$_POST["nome"],$_POST["nomePalazzetto"],$_POST["coloriSocietari"],$_POST["nazionalità"],$_POST["città"],$_SESSION["idUtente"],$_POST["idCampionato"]?:null]);
-    header("Location: gestione.php"); exit;
+       ->execute([$_POST["nome"],$_POST["nomePalazzetto"],$_POST["coloriSocietari"],$_POST["nazionalità"],$_POST["città"],$_SESSION["idUtente"],$_POST["idCampionato"]]);
+    header("Location: gestione.php"); 
+    exit;
 }
 
 
 // ELIMINAZIONE SQUADRA
-if (isset($_GET["del_squadra"])) {
-    $delId = $_GET["del_squadra"];
+if (isset($_POST["del_squadra"])) {  
+    $delId = $_POST["del_squadra"];
     $db->prepare("DELETE FROM squadra WHERE idSquadra=?")->execute([$delId]);
-    header("Location: gestione.php"); exit;
+    header("Location: gestione.php"); 
+    exit;
 }
 
 
@@ -56,8 +58,7 @@ if (isset($_POST["add_partita"])) {
     header("Location: gestione.php"); exit;
 }
 
-/*anche sq senza camp*/
-$squadre = $db->query("SELECT s.*,c.nomeCampionato FROM squadra s LEFT JOIN campionato c ON s.idCampionato=c.idCampionato ORDER BY s.punti DESC")->fetchAll();
+$squadre = $db->query("SELECT s.*,c.nomeCampionato FROM squadra s INNER JOIN campionato c ON s.idCampionato=c.idCampionato ORDER BY s.punti DESC")->fetchAll();
 $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")->fetchAll();
 
 ?>
@@ -80,21 +81,27 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
                 <td><?= htmlspecialchars($sDati['nomeSquadra']) ?></td>
                 <td><?= htmlspecialchars($sDati['nomeCampionato']) ?></td>
                 <td><strong><?= $sDati['punti'] ?></strong></td>
-                <td><a href="?del_squadra=<?= $sDati['idSquadra'] ?>" onclick="return confirm('Eliminare questa squadra?')">🗑️</a></td>
+
+                <td><form method="POST">
+                        <input  name="del_squadra" value="<?= $sDati['idSquadra'] ?>">
+                        <button type="submit" onclick="return confirm('Eliminare questa squadra?')">🗑️</button>
+                    </form></td>
             </tr>
             <?php } ?>
         </table>
     </section>
 
+
+
     <!-- NUOVA SQUADRA -->
     <section>
         <h3>Nuova Squadra</h3>
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST">
 
             <select name="idCampionato" required>
-                <option value="" disabled selected>Scegli campionato</option>
+                <option disabled selected> Scegli campionato </option>
                 <?php foreach ($campionati as $c) { ?>
-                    <option value="<?= $c['idCampionato'] ?>"><?= htmlspecialchars($c['nomeCampionato']) ?></option>
+                    <option value="<?= $c['idCampionato'] ?>"> <?= htmlspecialchars($c['nomeCampionato']) ?></option>
                 <?php } ?>
             </select>
 
@@ -107,13 +114,15 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
         </form>
     </section>
 
+
+
     <!-- NUOVA PARTITA -->
     <section>
         <h3>Nuova Partita</h3>
         <form method="POST">
 
             <select name="c" required>
-                <option value="" disabled selected>Casa</option>
+                <option disabled selected>Casa</option>
                 <?php foreach ($squadre as $s){ ?>
                     <option value="<?= $s['idSquadra'] ?>"><?= htmlspecialchars($s['nomeSquadra']) ?></option>
                 <?php } ?>
@@ -126,9 +135,9 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
             <input type="number" name="go" min="0" placeholder="Gol" required>
 
             <select name="o" required>
-                <option value="" disabled selected>Ospite</option>
+                <option disabled selected>Ospite</option>
                 <?php foreach ($squadre as $s) {?>
-                    <option value="<?= $s['idSquadra'] ?>"><?= htmlspecialchars($s['nomeSquadra']) ?></option>
+                    <option value="<?= $s['idSquadra'] ?>"> <?= htmlspecialchars($s['nomeSquadra']) ?></option>
                 <?php } ?>
             </select>
 

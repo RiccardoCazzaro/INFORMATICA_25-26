@@ -26,6 +26,7 @@ if ($idCampionato > 0) {
 $classifica = $qClass->fetchAll();
 
 // Partite (filtrate per campionato se selezionato)
+/*prendo tutte le partite con i nomi delle squadre casa e ospite, filtrando per campionato se è stato selezionato*/
 if ($idCampionato > 0) {
     $qP = $db->prepare("
         SELECT p.*,
@@ -51,11 +52,9 @@ if ($idCampionato > 0) {
 }
 $partite = $qP->fetchAll();
 ?>
-<!DOCTYPE html>
-<html lang="it">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/esercizioFinaleInformatica/adminFunzioni/classifiche.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="/esercizioFinaleInformatica/adminFunzioni/classifiche.css">
     <title>Classifiche</title>
 </head>
 <body>
@@ -69,11 +68,12 @@ $partite = $qP->fetchAll();
     <!--  CAMPIONATO -->
     <div class="campionatoClassifica">
         <form method="GET" class="sceltaCampionato">
+
             <label class="campionato">Campionato:</label>
-            <select name="torneo" onchange="this.form.submit()">
-                <option value="0" <?= $idCampionato == 0 ? 'selected' : '' ?>>Tutti</option>
+            <select name="torneo" onchange="this.form.submit()"> <!-- quando cambio campionato cambia la classifica e le squadre  -->
+                <option value="" <?= !$idCampionato ? "selected" : "" ?>>Tutti</option>
                 <?php foreach ($campionati as $c) { ?>
-                    <option value="<?= $c['idCampionato'] ?>" <?= $idCampionato == $c['idCampionato'] ? 'selected' : '' ?>>
+                    <option value="<?= $c['idCampionato'] ?>" <?= $idCampionato == $c['idCampionato'] ? "selected" : "" ?>>
                         <?= htmlspecialchars($c['nomeCampionato']) ?>
                     </option>
                 <?php } ?>
@@ -96,42 +96,51 @@ $partite = $qP->fetchAll();
                     <th>#</th><th>Squadra</th><th>PG</th><th>GF</th>
                     <th>GS</th><th>V</th><th>P</th><th>S</th><th>DR</th><th>Punti</th>
                 </tr>
-                <tbody>
+            <tbody>
                 <?php foreach ($classifica as $i => $squadra):
 
-                    $q = $db->prepare("SELECT COUNT(*) FROM partita WHERE idSquadraCasa = ? OR idSquadraOspite = ?");
-                    $q->execute([$squadra['idSquadra'], $squadra['idSquadra']]);
+                    /*partite giocate*/
+                    $q = $db->prepare("SELECT COUNT(idPartita) FROM partita WHERE idSquadraCasa = ? OR idSquadraOspite = ?");
+                    $q->execute([$squadra["idSquadra"], $squadra["idSquadra"]]);
                     $pg = $q->fetchColumn();
 
+
+                    /*gol fatti*/  /*se query e null mette 0*/
                     $q = $db->prepare("SELECT
                         IFNULL((SELECT SUM(golSquadraCasa)   FROM partita WHERE idSquadraCasa   = ?), 0) +
                         IFNULL((SELECT SUM(golSquadraOspite) FROM partita WHERE idSquadraOspite = ?), 0)");
-                    $q->execute([$squadra['idSquadra'], $squadra['idSquadra']]);
+                    $q->execute([$squadra["idSquadra"], $squadra["idSquadra"]]);
                     $gf = $q->fetchColumn();
 
+                    /*gol subiti*/
                     $q = $db->prepare("SELECT
                         IFNULL((SELECT SUM(golSquadraOspite) FROM partita WHERE idSquadraCasa   = ?), 0) +
                         IFNULL((SELECT SUM(golSquadraCasa)   FROM partita WHERE idSquadraOspite = ?), 0)");
-                    $q->execute([$squadra['idSquadra'], $squadra['idSquadra']]);
+                    $q->execute([$squadra["idSquadra"], $squadra["idSquadra"]]);
                     $gs = $q->fetchColumn();
 
-                    $q = $db->prepare("SELECT COUNT(*) FROM partita WHERE
-                        (idSquadraCasa   = ? AND golSquadraCasa   > golSquadraOspite) OR
+                    /*partite vinte*/
+                    $q = $db->prepare("SELECT COUNT(idPartita) FROM partita WHERE
+                        (idSquadraCasa = ? AND golSquadraCasa> golSquadraOspite) OR
                         (idSquadraOspite = ? AND golSquadraOspite > golSquadraCasa)");
-                    $q->execute([$squadra['idSquadra'], $squadra['idSquadra']]);
+                    $q->execute([$squadra["idSquadra"], $squadra["idSquadra"]]);
                     $v = $q->fetchColumn();
 
-                    $q = $db->prepare("SELECT COUNT(*) FROM partita WHERE
+                    /*partite pareggiate*/
+                    $q = $db->prepare("SELECT COUNT(idPartita) FROM partita WHERE
                         (idSquadraCasa = ? OR idSquadraOspite = ?) AND golSquadraCasa = golSquadraOspite");
-                    $q->execute([$squadra['idSquadra'], $squadra['idSquadra']]);
+                    $q->execute([$squadra["idSquadra"], $squadra["idSquadra"]]);
                     $par = $q->fetchColumn();
 
+                    /*partite sconfitte*/
                     $sconf = $pg - $v - $par;
+
+                    /*differenza reti*/
                     $dr = $gf - $gs;
                 ?>
                 <tr>
                     <td><?= $i + 1 ?></td>
-                    <td><?= htmlspecialchars($squadra['nomeSquadra']) ?></td>
+                    <td><?= htmlspecialchars($squadra["nomeSquadra"]) ?></td>
                     <td><?= $pg ?></td>
                     <td><?= $gf ?></td>
                     <td><?= $gs ?></td>
@@ -139,47 +148,46 @@ $partite = $qP->fetchAll();
                     <td class="g"><?= $par ?></td>
                     <td class="r"><?= $sconf ?></td>
                     <td><?= $dr ?></td>
-                    <td><b><?= $squadra['punti'] ?></b></td>
+                    <td><b><?= $squadra["punti"] ?></b></td>
                 </tr>
                 <?php endforeach; ?>
-                </tbody>
+            </tbody>
             </table>
         <?php endif; ?>
     </div>
 
-    <!-- TAB RISULTATI -->
-    <div id="risultati" class="tab">
-        <?php if (!$partite): ?>
-            <p class="vuoto">Nessuna partita disputata.</p>
-        <?php else: ?>
-        <div class="griglia">
-            <?php foreach ($partite as $p) { ?>
-            <div class="card">
-                <div class="dataOra">
-                    <?= $p['dataPartita'] ? date('d/m/Y', strtotime($p['dataPartita'])) : '' ?>
-                    <?= $p['oraPartita']  ? ' – ' . substr($p['oraPartita'], 0, 5)      : '' ?>
-                </div>
-                <div class="sfida">
-                    <span><?= htmlspecialchars($p['nomeCasa']) ?></span>
-                    <b><?= $p['golSquadraCasa'] ?> – <?= $p['golSquadraOspite'] ?></b>
-                    <span><?= htmlspecialchars($p['nomeOspite']) ?></span>
-                </div>
+<!-- TAB RISULTATI -->
+<div id="risultati" class="tab">
+    <?php if (!$partite): ?>
+        <p class="vuoto">Nessuna partita disputata.</p>
+    <?php else: ?>
+    <div class="griglia">
+        <?php foreach ($partite as $p) { ?>
+        <div class="card">
+            <div class="dataOra">
+                <?= date("d/m/Y", strtotime($p["dataPartita"])) ?>
+                <?= " – " . substr($p["oraPartita"], 0, 5) ?> <!-- d 0 al quinto caratter"-->
             </div>
-            <?php } ?>
+            <div class="sfida">
+                <span><?= htmlspecialchars($p["nomeCasa"]) ?></span>
+                <b><?= $p["golSquadraCasa"] ?> – <?= $p["golSquadraOspite"] ?></b>
+                <span><?= htmlspecialchars($p["nomeOspite"]) ?></span>
+            </div>
         </div>
-        <?php endif; ?>
+        <?php } ?>
     </div>
+    <?php endif; ?>
+</div>
 
 </div>
 
 <script>
 function tab(id, b) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
-    document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('on'));
-    document.getElementById(id).classList.add('on');
-    b.classList.add('on');
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on')); /*tutte le tab togli la classe on*/
+    document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('on'));/*stesso per i bottoni*/
+    document.getElementById(id).classList.add('on'); /*alla tab con id=id aggiungi classe on*/
+    b.classList.add('on'); /*al bottone cliccato aggiungi classe on*/
 }
 </script>
 
 </body>
-</html>

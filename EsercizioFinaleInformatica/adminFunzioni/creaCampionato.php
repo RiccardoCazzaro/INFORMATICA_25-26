@@ -20,8 +20,8 @@ if (isset($_POST["creaTorneo"])) {
 }
 
 // ELIMINA CAMPIONATO
-if (isset($_GET["del"])) {
-    $delId = $_GET["del"];
+if (isset($_POST["del"])) {
+    $delId = $_POST["del"];
     $db->prepare("DELETE FROM campionato WHERE idCampionato = ?")->execute([$delId]);
     header("Location: creaCampionato.php"); exit;
 }
@@ -65,15 +65,16 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
 
                         <?php   
                             $data = new DateTime($c["dataCreazione"]);
-                            echo $data->format('d/m/Y'); 
+                            echo $data->format("d/m/Y"); 
                         ?>
                         
                     </div>
-                       <a href="?del=<?= $c["idCampionato"] ?>"
-                            class="del"
-                            onclick="return confirm('Eliminare «<?= htmlspecialchars($c['nomeCampionato']) ?> »?')">
-                            🗑 Elimina
-                       </a>
+                       <form method="POST">
+                            <input  name="del" value="<?= $c["idCampionato"] ?>">
+                            <button type="submit" class="del" onclick="return confirm('Eliminare «<?= htmlspecialchars($c['nomeCampionato']) ?> »?')">
+                                🗑 Elimina
+                            </button>
+                        </form>
                     </div>
                 <?php } ?>
             </div>
