@@ -5,7 +5,7 @@ $idCampionato = isset($_GET["torneo"]) ? $_GET["torneo"] : 0;
 
 $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")->fetchAll();
 
-/*se si ha scelto un campionato >
+/*se si ha scelto un campionato*/
 /* classifica  */
 if ($idCampionato > 0) {
     $qClass = $db->prepare("
@@ -53,6 +53,8 @@ $partite = $qP->fetchAll();
 
 <head>
     <link rel="stylesheet" href="/esercizioFinaleInformatica/adminFunzioni/classifiche.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 

@@ -52,10 +52,14 @@ button:hover {
   border-color: rgba(255, 255, 255, 0.75);
 }
 
+button.cestino {
+    background: none;
+    border: none;
+}
 
 
 
-/* --- TABELLE E CLASSIFICHE --- */
+/* TABELLE E CLASSIFICHE */
 table {
     width: 100%;
     background: black;
@@ -105,11 +109,10 @@ input[type="text"]{
     margin-top: 30px;
 }
 
-input::placeholder {   /*:: x attributo no tag*/
+input::placeholder {   /*:: x attributo, no tag*/
     color: white;
     font-size: 24px;
 }
-
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);  

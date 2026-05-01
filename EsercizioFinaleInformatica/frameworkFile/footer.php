@@ -1,7 +1,8 @@
 <head>
     <link rel="stylesheet" href="/esercizioFinaleInformatica/frameworkFile/footer.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
 <footer class="footerSopra">
     <div class="footerContainer">
         <div class="sezioneFooter">
@@ -29,4 +30,3 @@
         <p>&copy; <?php echo date("Y"); ?> Futsal Mania. Tutti i diritti riservati.</p> 
     </div>
 </footer>
-</body>

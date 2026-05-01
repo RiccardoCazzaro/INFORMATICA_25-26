@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 $is_logged = isset($_SESSION['idUtente']); //v o f
 
 function mostraPrezzo($prezzo) {
-    global $is_logged;
+    global $is_logged; /*pk fuori dalla funz*/
     if ($is_logged) {
         $prezzoScontato = $prezzo * 0.90; //(10%)
         echo '<div class="priceContainer">';
@@ -24,8 +24,8 @@ function mostraPrezzo($prezzo) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futsal: Storia e Passione</title>
-    <link rel="stylesheet" href="shop.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="shop.css">
+
 </head>
 <body>
         <div class="intestazione">

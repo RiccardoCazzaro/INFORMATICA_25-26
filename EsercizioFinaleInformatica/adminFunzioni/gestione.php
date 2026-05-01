@@ -20,7 +20,27 @@ if (isset($_POST["add_squadra"])) {
 // ELIMINAZIONE SQUADRA
 if (isset($_POST["del_squadra"])) {  
     $delId = $_POST["del_squadra"];
-    $db->prepare("DELETE FROM squadra WHERE idSquadra=?")->execute([$delId]);
+
+    // Recupera tutte le partite della squadra
+    $partite = $db->prepare("SELECT * FROM partita WHERE idSquadraCasa = ? OR idSquadraOspite = ?");
+    $partite->execute([$delId, $delId]);
+
+    foreach ($partite->fetchAll() as $p) {
+        $gc = $p["golSquadraCasa"];
+        $go = $p["golSquadraOspite"];
+
+        $pc = $gc > $go ? 3 : ($gc == $go ? 1 : 0); // punti casa
+        $po = $go > $gc ? 3 : ($go == $gc ? 1 : 0); // punti ospite
+
+        // solo avv
+        if ($p["idSquadraCasa"] != $delId)
+            $db->prepare("UPDATE squadra SET punti = punti - ? WHERE idSquadra = ?")->execute([$pc, $p["idSquadraCasa"]]);
+        
+        if ($p["idSquadraOspite"] != $delId)
+            $db->prepare("UPDATE squadra SET punti = punti - ? WHERE idSquadra = ?")->execute([$po, $p["idSquadraOspite"]]);
+    }
+
+    $db->prepare("DELETE FROM squadra WHERE idSquadra = ?")->execute([$delId]);
     header("Location: gestione.php"); 
     exit;
 }
@@ -65,9 +85,12 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
 
 <head>
     <link rel="stylesheet" href="gestione.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
-<div class="container">
+  <div class="container">
     <h1>Gestione classifiche e squadre</h1>
 
     <!-- CLASSIFICA -->
@@ -83,8 +106,8 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
                 <td><strong><?= $sDati['punti'] ?></strong></td>
 
                 <td><form method="POST">
-                        <input  name="del_squadra" value="<?= $sDati['idSquadra'] ?>">
-                        <button type="submit" onclick="return confirm('Eliminare questa squadra?')">🗑️</button>
+                        <input type="hidden" name="del_squadra" value="<?= $sDati['idSquadra'] ?>"> 
+                        <button  type="submit" class="cestino" onclick="return confirm('Eliminare questa squadra?')">🗑️</button>
                     </form></td>
             </tr>
             <?php } ?>
@@ -101,7 +124,7 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
             <select name="idCampionato" required>
                 <option disabled selected> Scegli campionato </option>
                 <?php foreach ($campionati as $c) { ?>
-                    <option value="<?= $c['idCampionato'] ?>"> <?= htmlspecialchars($c['nomeCampionato']) ?></option>
+                    <option value="<?= $c['idCampionato'] ?>"> <?= htmlspecialchars($c["nomeCampionato"]) ?></option>
                 <?php } ?>
             </select>
 
@@ -124,7 +147,7 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
             <select name="c" required>
                 <option disabled selected>Casa</option>
                 <?php foreach ($squadre as $s){ ?>
-                    <option value="<?= $s['idSquadra'] ?>"><?= htmlspecialchars($s['nomeSquadra']) ?></option>
+                    <option value="<?= $s['idSquadra'] ?>"><?= htmlspecialchars($s["nomeSquadra"]) ?></option>
                 <?php } ?>
             </select>
 
@@ -137,7 +160,7 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
             <select name="o" required>
                 <option disabled selected>Ospite</option>
                 <?php foreach ($squadre as $s) {?>
-                    <option value="<?= $s['idSquadra'] ?>"> <?= htmlspecialchars($s['nomeSquadra']) ?></option>
+                    <option value="<?= $s['idSquadra'] ?>"> <?= htmlspecialchars($s["nomeSquadra"]) ?></option>
                 <?php } ?>
             </select>
 

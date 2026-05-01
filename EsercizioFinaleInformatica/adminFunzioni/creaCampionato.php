@@ -33,6 +33,8 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
 
 <head>
     <link rel="stylesheet" href="creaCampionato.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -55,7 +57,6 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
         <?php if (!$campionati){?>
             <p class="vuoto">Nessun campionato creato.</p>
         <?php }   
-        
         else { ?>
             <div class="lista">
                 <?php foreach ($campionati as $c) { ?>
@@ -70,8 +71,8 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
                         
                     </div>
                        <form method="POST">
-                            <input  name="del" value="<?= $c["idCampionato"] ?>">
-                            <button type="submit" class="del" onclick="return confirm('Eliminare «<?= htmlspecialchars($c['nomeCampionato']) ?> »?')">
+                            <input  type="hidden" name="del" value="<?= $c["idCampionato"] ?>">
+                            <button type="submit" type="hidden" class="del" onclick="return confirm('Eliminare «<?= htmlspecialchars($c['nomeCampionato']) ?> »?')">
                                 🗑 Elimina
                             </button>
                         </form>

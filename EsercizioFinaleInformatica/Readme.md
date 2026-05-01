@@ -30,34 +30,36 @@ Sito web dedicato al mondo del Futsal (calcio a 5) italiano
 
 ```
 esercizioFinaleInformatica/
-├── home.php
+├── home.php con css
 ├── frameworkFile/
 │   ├── headerChoice.php          
-│   ├── headerUser.php            
-│   ├── headerProprietario.php    
-│   ├── headerAdmin.php          
-│   ├── footer.php
-│   ├── dbHandler.php            
-│   ├── logOut.php
+│   ├── headerUser.php con css            
+│   ├── headerProprietario.php con css
+│   ├── headerAdmin.php con css          
+│   ├── footer.php con css
+│   ├── dbHandler.php             
+│   ├── logOut.php 
 │   └── file.json    
 |        
 ├── adminFunzioni/
-│   ├── gestione.php              
-│   ├── gestione.css
-│   ├── creaCampionato.php       
-│   ├── creaCampionato.css
-│   ├── classifiche.php           
-│   └── classifiche.css
+│   ├── gestione.php con css              
+│   ├── creaCampionato.php con css       
+│   ├── classifiche.php con css           
+|
 ├── loginFile/
-│   └── loginForm.php
+│   └── loginForm.php con css, login.php
+|
 ├── signupFile/
-│   └── signupForm.php
+│   └── signupForm.php con css, signup.php
+|
 ├── campiFile/
-│   └── campi.php
+│   └── campi.php con css
+|
 ├── storiaFile/
-│   └── storia.php
+│   └── storia.php con css
+|
 └── shopFile/
-    └── shop.php
+    └── shop.php con css
 ```
 
 ---

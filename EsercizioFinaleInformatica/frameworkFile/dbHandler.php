@@ -2,13 +2,13 @@
 class DBHandler {
     private static $pdo; 
 
-    private function __construct() {} // Impedisce l'istanza diretta della classe (singleton)
+    private function __construct() {} 
 
     public static function getPDO(){
         if(self::$pdo == null){ 
             self::connect_database(); 
         }
-        return self::$pdo;        // se ce gia ritorna quella che c gia, altrimenti la crea e poi la ritorna
+        return self::$pdo;     
     }
 
     private static function connect_database() {

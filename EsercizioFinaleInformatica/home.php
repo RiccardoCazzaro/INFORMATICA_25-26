@@ -1,10 +1,11 @@
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="homeFile/home.css?">
     <title>Futsal World | Riccardo Cazzaro</title>
 </head>
 <body>
-
     <header class="centro">
         <div class="titoloCentro">
             <h1>Futsal Mania </h1>
