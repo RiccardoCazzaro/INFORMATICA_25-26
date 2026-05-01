@@ -94,3 +94,8 @@ Il database si chiama `futsalhouse` (MySQL) `mysql:host=localhost;dbname=futsalh
 |`squadra`     | Squadre iscritte a un campionato    | `idSquadra`, `nomeSquadra`, `città`, `punti`, `idCampionato`, `idUtente`, `nomePalazzetto`, `nazionalità`                                                                                                                                |
 | `partita`    | Risultati delle gare                | `idPartita`, `idSquadraCasa`, `idSquadraOspite`, `golCasa`, `golOspite`, `dataPartita`, `oraPartita`, `idUtente`, `idCampionato` |
  
+## Regole generali/logiche
+- se cancelli un campionato si cancellano anche le squadre presenti in quel campionato
+- non si può creare una partita tra due squadre di diverso campionato
+- quando si cancella una squadra anche le sue partite verranno cancellate e di conseguenza i gol e i punti della squadra avversaria verranno aggiornati
+- non puoi chiamare ugualmente due squadre nello stesso campionato e due campionati diversi

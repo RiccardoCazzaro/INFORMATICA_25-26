@@ -24,9 +24,7 @@ CREATE TABLE campionato (
     idCampionato INT AUTO_INCREMENT,
     nomeCampionato VARCHAR(255) NOT NULL,
     dataCreazione DATE,
-    idUtente Int,
     PRIMARY KEY(idCampionato),
-    FOREIGN KEY (idUtente) REFERENCES utenti(idUtente) ON DELETE SET NULL
 );
 
 -- Tabella SQUADRA
@@ -62,5 +60,6 @@ CREATE TABLE partita(
     FOREIGN KEY (idSquadraOspite) REFERENCES squadra(idSquadra) ON DELETE CASCADE,
     FOREIGN KEY (idCampionato) REFERENCES campionato(idCampionato) ON DELETE CASCADE
 );
+
 
 drop DATABASE IF EXISTS futsalHouse;

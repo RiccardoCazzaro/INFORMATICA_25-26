@@ -1,6 +1,5 @@
 <?php
 $db = DBHandler::getPDO();
-
 // CREA CAMPIONATO
 if (isset($_POST["creaTorneo"])) {
 
@@ -9,14 +8,18 @@ if (isset($_POST["creaTorneo"])) {
     $ctrduplica = $db->prepare("SELECT COUNT(*) FROM campionato WHERE nomeCampionato=?"); 
     $ctrduplica->execute([$nome]);
 
+    
     if ($ctrduplica->fetchColumn() > 0) {
         echo "<script>alert('Esiste già un campionato con questo nome!');location='creaCampionato.php'</script>"; exit;
     }
 
     /*aggiunge*/
-    $db->prepare("INSERT INTO campionato (nomeCampionato, dataCreazione) VALUES (?, NOW())")  /*now  data di oggi*/
-       ->execute([$nome]);
-    header("Location: creaCampionato.php"); exit;
+    // Aggiunge un campionato
+    $stmt = $db->prepare("INSERT INTO campionato (nomeCampionato, dataCreazione) VALUES (?, NOW())");
+    $stmt->execute([$nome]);
+
+   header("Location: creaCampionato.php");
+ exit;
 }
 
 // ELIMINA CAMPIONATO
@@ -54,7 +57,7 @@ $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")
     <section>
         <h3>Campionati Esistenti</h3>
         <!--array vuoto-->
-        <?php if (!$campionati){?>
+        <?php if (empty ($campionati)){?>
             <p class="vuoto">Nessun campionato creato.</p>
         <?php }   
         else { ?>
