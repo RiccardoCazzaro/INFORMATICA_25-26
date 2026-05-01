@@ -1,13 +1,12 @@
 <?php
 $db = DBHandler::getPDO();
 
-// Campionato selezionato (0 = tutti)
 $idCampionato = isset($_GET["torneo"]) ? $_GET["torneo"] : 0;
 
-// Lista campionati per il dropdown
 $campionati = $db->query("SELECT * FROM campionato ORDER BY dataCreazione DESC")->fetchAll();
 
-// Classifica (filtrata per campionato se selezionato)
+/*se si ha scelto un campionato >
+/* classifica  */
 if ($idCampionato > 0) {
     $qClass = $db->prepare("
         SELECT s.*
@@ -25,7 +24,7 @@ if ($idCampionato > 0) {
 }
 $classifica = $qClass->fetchAll();
 
-
+/*partite*/
 if ($idCampionato > 0) {
     $qP = $db->prepare("
         SELECT p.*,
@@ -41,10 +40,10 @@ if ($idCampionato > 0) {
 } else {
     $qP = $db->query("
         SELECT p.*,
-            s1.nomeSquadra AS nomeCasa,    s1.idSquadra AS idCasa,
-            s2.nomeSquadra AS nomeOspite,  s2.idSquadra AS idOspite
+            s1.nomeSquadra AS nomeCasa, s1.idSquadra AS idCasa,
+            s2.nomeSquadra AS nomeOspite, s2.idSquadra AS idOspite
         FROM partita p
-        JOIN squadra s1 ON p.idSquadraCasa    = s1.idSquadra
+        JOIN squadra s1 ON p.idSquadraCasa = s1.idSquadra
         JOIN squadra s2 ON p.idSquadraOspite  = s2.idSquadra
         ORDER BY p.idPartita DESC
     ");
@@ -54,7 +53,6 @@ $partite = $qP->fetchAll();
 
 <head>
     <link rel="stylesheet" href="/esercizioFinaleInformatica/adminFunzioni/classifiche.css">
-    <title>Classifiche</title>
 </head>
 <body>
 
@@ -104,7 +102,7 @@ $partite = $qP->fetchAll();
                     $pg = $q->fetchColumn();
 
 
-                    /*gol fatti*/  /*se query e null mette 0*/
+                    /*gol fatti*/  /* query null --> 0*/
                     $q = $db->prepare("SELECT
                         IFNULL((SELECT SUM(golSquadraCasa)   FROM partita WHERE idSquadraCasa   = ?), 0) +
                         IFNULL((SELECT SUM(golSquadraOspite) FROM partita WHERE idSquadraOspite = ?), 0)");
@@ -154,6 +152,7 @@ $partite = $qP->fetchAll();
             </table>
         <?php endif; ?>
     </div>
+    
 
 <!-- TAB RISULTATI -->
 <div id="risultati" class="tab">
@@ -165,7 +164,7 @@ $partite = $qP->fetchAll();
         <div class="card">
             <div class="dataOra">
                 <?= date("d/m/Y", strtotime($p["dataPartita"])) ?>
-                <?= " – " . substr($p["oraPartita"], 0, 5) ?> <!-- d 0 al quinto caratter"-->
+                <?= " – " . substr($p["oraPartita"], 0, 5) ?> <!-- da 0 al quinto caratter"-->
             </div>
             <div class="sfida">
                 <span><?= htmlspecialchars($p["nomeCasa"]) ?></span>
@@ -182,10 +181,10 @@ $partite = $qP->fetchAll();
 
 <script>
 function tab(id, b) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on')); /*tutte le tab togli la classe on*/
-    document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('on'));/*stesso per i bottoni*/
-    document.getElementById(id).classList.add('on'); /*alla tab con id=id aggiungi classe on*/
-    b.classList.add('on'); /*al bottone cliccato aggiungi classe on*/
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("on")); /*tutte le tab togli la classe on*/
+    document.querySelectorAll(".tab-btn").forEach(x => x.classList.remove("on"));/*stesso per i bottoni*/
+    document.getElementById(id).classList.add("on"); /*alla tab con id=id aggiungi classe on*/
+    b.classList.add("on"); /*al bottone cliccato aggiungi classe on*/
 }
 </script>
 
