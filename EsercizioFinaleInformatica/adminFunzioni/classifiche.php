@@ -87,16 +87,16 @@ $partite = $qP->fetchAll();
 
     <!-- TAB CLASSIFICA -->
     <div id="classifica" class="tab on">
-        <?php if (!$classifica): ?>
+        <?php if (!$classifica){ ?>
             <p class="vuoto">Nessuna squadra registrata.</p>
-        <?php else: ?>
+            <?php } else{ ?>
             <table>
                 <tr>
                     <th>#</th><th>Squadra</th><th>PG</th><th>GF</th>
                     <th>GS</th><th>V</th><th>P</th><th>S</th><th>DR</th><th>Punti</th>
                 </tr>
             <tbody>
-                <?php foreach ($classifica as $i => $squadra):
+                <?php foreach ($classifica as $i => $squadra){
 
                     /*partite giocate*/
                     $q = $db->prepare("SELECT COUNT(idPartita) FROM partita WHERE idSquadraCasa = ? OR idSquadraOspite = ?");
@@ -149,24 +149,24 @@ $partite = $qP->fetchAll();
                     <td><?= $dr ?></td>
                     <td><b><?= $squadra["punti"] ?></b></td>
                 </tr>
-                <?php endforeach; ?>
+                <?php } ?>
             </tbody>
             </table>
-        <?php endif; ?>
+        <?php } ?>
     </div>
     
 
 <!-- TAB RISULTATI -->
 <div id="risultati" class="tab">
-    <?php if (!$partite): ?>
+    <?php if (!$partite){ ?>
         <p class="vuoto">Nessuna partita disputata.</p>
-    <?php else: ?>
+    <?php }else{ ?>
     <div class="griglia">
         <?php foreach ($partite as $p) { ?>
         <div class="card">
             <div class="dataOra">
                 <?= date("d/m/Y", strtotime($p["dataPartita"])) ?>
-                <?= " – " . substr($p["oraPartita"], 0, 5) ?> <!-- da 0 al quinto caratter"-->
+                <?= " – " . substr($p["oraPartita"], 0, 5) ?> <!-- da 0 al quinto carattere-->
             </div>
             <div class="sfida">
                 <span><?= htmlspecialchars($p["nomeCasa"]) ?></span>
@@ -176,7 +176,7 @@ $partite = $qP->fetchAll();
         </div>
         <?php } ?>
     </div>
-    <?php endif; ?>
+    <?php } ?>
 </div>
 
 </div>

@@ -42,6 +42,7 @@
 
 .links a:hover { 
     color: #cc6802;
+    text-decoration: none;
 }
 
 .links a.active {
@@ -61,6 +62,7 @@
 
 .linkProprietario a:hover {
     color: #cc6802;
+    text-decoration: none;
 }
 
 .linkProprietario a.active {
