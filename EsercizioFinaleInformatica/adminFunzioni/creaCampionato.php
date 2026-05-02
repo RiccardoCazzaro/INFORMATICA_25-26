@@ -15,8 +15,8 @@ if (isset($_POST["creaTorneo"])) {
 
     /*aggiunge*/
     // Aggiunge un campionato
-    $stmt = $db->prepare("INSERT INTO campionato (nomeCampionato, dataCreazione) VALUES (?, NOW())");
-    $stmt->execute([$nome]);
+    $stmt = $db->prepare("INSERT INTO campionato (nomeCampionato, dataCreazione, idUtente) VALUES (?, NOW(), ?)");
+    $stmt->execute([$nome, $_SESSION["idUtente"]]);
 
    header("Location: creaCampionato.php");
  exit;

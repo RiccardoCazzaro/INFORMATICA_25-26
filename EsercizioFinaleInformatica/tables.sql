@@ -24,7 +24,9 @@ CREATE TABLE campionato (
     idCampionato INT AUTO_INCREMENT,
     nomeCampionato VARCHAR(255) NOT NULL,
     dataCreazione DATE,
+    idUtente INT,
     PRIMARY KEY(idCampionato),
+    FOREIGN KEY (idUtente) REFERENCES utenti(idUtente)
 );
 
 -- Tabella SQUADRA
